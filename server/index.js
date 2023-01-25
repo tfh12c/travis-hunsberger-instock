@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const warehouseRoutes = require('./routes/warehouseRoutes');
 
 //Config
 require('dotenv').config();
@@ -11,6 +12,7 @@ app.use(express.json()); //parses incoming JSON requests and puts the parsed dat
 app.use(cors());
 
 //Routes
+app.use('/warehouse', warehouseRoutes);
 
 //Start server
 app.listen(port, () => {
