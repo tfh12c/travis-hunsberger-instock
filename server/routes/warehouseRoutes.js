@@ -19,6 +19,22 @@ function writeWarehouses(data) {
     fs.writeFileSync('./data/warehouses.json', JSON.stringify(data)); //converts js object into json string when pushing to file
 }
 
+//Function to read inventory data
+function readInventory() {
+    try {
+        const inventoryFile = fs.readFileSync('./data/inventories.json');
+        const inventoryData = JSON.parse(inventoryFile); 
+        return inventoryData;
+    } catch (error) {
+        console.log('Error reading inventory data: ', error.message);
+    }
+}
+
+//Function to write inventory data
+function writeInventory(data) {
+    fs.writeFileSync('./data/inventories.json', JSON.stringify(data));
+}
+
 //GET endpoint for all warehouses
 router.get('/', (req, res) => {
     const warehouses = readWarehouses();
@@ -74,9 +90,15 @@ router.put('/edit/:id', (req, res) => {
     
     //Find singleWarehouse
     const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    if (!singleWarehouse) {
+        res.status(404).send('No warehouse found with that ID.');
+    }
 
      //Find index of singleWarehouse
     const index = warehouses.indexOf(singleWarehouse);
+    if (index === -1) {
+        res.status(404).send('No warehouse found to edit.');
+    }
 
      //Create editedWarehouse object
      editedWarehouse = {
@@ -105,5 +127,35 @@ router.put('/edit/:id', (req, res) => {
 
 
 //DELETE endpoint to delete warehouse
+router.delete('/:id/delete', (req, res) => {
+    const warehouses = readWarehouses();
+    const inventories = readInventory();
+
+    //Find warehouse from ID
+    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    if (!singleWarehouse) {
+        res.status(404).send('No warehouse found with that ID.');
+    }
+
+    //Find index of warehouse to splice from warehouses
+    const index = warehouses.indexOf(singleWarehouse);
+    if (index === -1) {
+        res.status(404).send('No warehouse found to edit.');
+    }
+
+    //Filter inventories to get everything but the found warehouse inventory 
+    const newInventory = inventories.filter(inventory => inventory.warehouseID !== singleWarehouse.id)
+
+    //Splice warehouses
+    warehouses.splice(index, 1);
+
+    //Write new warehouse data
+    writeWarehouses(warehouses);
+
+    //Write new inventory data
+    writeInventory(newInventory);
+
+    res.status(201).send(`Deleted ${singleWarehouse.name} warehouse.`);
+})
 
 module.exports = router;
