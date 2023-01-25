@@ -28,13 +28,43 @@ router.get('/', (req, res) => {
 //GET endpoint for warehouse by ID
 router.get('/:id', (req, res) => {
     const warehouses = readWarehouses();
-    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id)
+
+    //Find single warehouse
+    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    //If not a valid warehouse ID, send a 404
+    if (!singleWarehouse) {
+        return res.status(404).send('No warehouse found with that ID.');
+    }
     res.send(singleWarehouse);
 })
 
 //POST endpoint to add warehouse
 router.post('/add', (req, res) => {
-    res.send('This is a post!');
+    const warehouses = readWarehouses();
+
+    //New object, populated by request sent 
+    const newWarehouse = {
+        id: uniqid(),
+        name: req.body.name, 
+        address: req.body.address,
+        city: req.body.city,
+        country: req.body.country,
+        contact: {
+            name: req.body.name,
+            position: req.body.position, 
+            phone: req.body.phone,
+            email: req.body.email
+        }
+    }
+
+    //Push new warehouse into warehouses data
+    warehouses.push(newWarehouse);
+
+    //Write the new warehouses data to warehouses file
+    writeWarehouses(warehouses);
+
+    //Send response
+    res.status(201).json(newWarehouse);
 })
 
 //PUT endpoint to edit warehouse
