@@ -29,8 +29,9 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const warehouses = readWarehouses();
 
-    //Find single warehouse
+    //Find single warehouse with ID
     const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+
     //If not a valid warehouse ID, send a 404
     if (!singleWarehouse) {
         return res.status(404).send('No warehouse found with that ID.');
@@ -67,7 +68,41 @@ router.post('/add', (req, res) => {
     res.status(201).json(newWarehouse);
 })
 
-//PUT endpoint to edit warehouse
+//PUT endpoint to edit a warehouse
+router.put('/edit/:id', (req, res) => {
+    const warehouses = readWarehouses();
+    
+    //Find singleWarehouse
+    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+
+     //Find index of singleWarehouse
+    const index = warehouses.indexOf(singleWarehouse);
+
+     //Create editedWarehouse object
+     editedWarehouse = {
+        id: singleWarehouse.id, 
+        name: req.body.name,
+        address: req.body.address,
+        city: req.body.city,
+        country: req.body.city,
+        contact: {
+            name: req.body.contactName,
+            position: req.body.contactPosition,
+            phone: req.body.contactPhone,
+            email: req.body.email
+        }
+     }
+
+    //Splice warehouses array with .splice(foundIndex, 1, editedWarehouse)
+     warehouses.splice(index, 1, editedWarehouse);
+
+     //Write the new warehouses data to warehouses file
+     writeWarehouses(warehouses);
+
+     //Send response
+    res.status(201).json(editedWarehouse);
+})
+
 
 //DELETE endpoint to delete warehouse
 
