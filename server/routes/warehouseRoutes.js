@@ -155,6 +155,7 @@ router.delete('/:id/delete', (req, res) => {
     //Write new inventory data
     writeInventory(newInventory);
 
+    //Send response
     res.status(201).send(`Deleted ${singleWarehouse.name} warehouse.`);
 })
 
