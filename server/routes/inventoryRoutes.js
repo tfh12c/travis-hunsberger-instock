@@ -25,4 +25,18 @@ router.get('/', (req, res) => {
     res.send(inventories);
 })
 
+//GET endpoint for inventory by ID
+router.get('/:id', (req, res) => {
+    const inventories = readInventory();
+
+    //Destructure ID from req.params object (req.params.id)
+    const { id } = req.params;
+
+    //Find item from inventories data
+    const item = inventories.find(inventory => inventory.id === id);
+
+    //Send response/item
+    res.send(item);
+})
+
 module.exports = router;
