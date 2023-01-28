@@ -103,4 +103,30 @@ router.put('/edit/:id', (req, res) => {
     res.status(201).json(editedItem);
 })
 
+//DELETE endpoint to delete an item
+router.delete('/delete/:id', (req, res) => {
+    const inventories = readInventory();
+
+    //Find item from ID
+    const item = inventories.find(item => item.id === req.params.id);
+    if (!item) {
+        res.status(404).send('No item found with that ID.');
+    }
+
+    //Find index of item to splice from inventories 
+    const index = inventories.indexOf(item);
+    if (index === -1) {
+        res.status(404).send('No item found to edit.');
+    }
+
+    //Splice inventories
+    inventories.splice(index, 1);
+
+    //Write new inventories data
+    writeInventory(inventories);
+
+    //Send response 
+    res.status(201).send(`Item has been deleted.`);
+})
+
 module.exports = router;

@@ -127,7 +127,7 @@ router.put('/edit/:id', (req, res) => {
 
 
 //DELETE endpoint to delete warehouse
-router.delete('/:id/delete', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
     const warehouses = readWarehouses();
     const inventories = readInventory();
 
@@ -156,7 +156,7 @@ router.delete('/:id/delete', (req, res) => {
     writeInventory(newInventory);
 
     //Send response
-    res.status(201).send(`Deleted ${warehouse.name} warehouse.`);
+    res.status(201).send(`Warehouse has been deleted.`);
 })
 
 module.exports = router;
