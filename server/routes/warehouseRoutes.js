@@ -46,13 +46,13 @@ router.get('/:id', (req, res) => {
     const warehouses = readWarehouses();
 
     //Find single warehouse with ID
-    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    const warehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
 
     //If not a valid warehouse ID, send a 404
-    if (!singleWarehouse) {
+    if (!warehouse) {
         return res.status(404).send('No warehouse found with that ID.');
     }
-    res.send(singleWarehouse);
+    res.send(warehouse);
 })
 
 //POST endpoint to add warehouse
@@ -88,21 +88,21 @@ router.post('/add', (req, res) => {
 router.put('/edit/:id', (req, res) => {
     const warehouses = readWarehouses();
     
-    //Find singleWarehouse
-    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
-    if (!singleWarehouse) {
+    //Find warehouse
+    const warehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    if (!warehouse) {
         res.status(404).send('No warehouse found with that ID.');
     }
 
-     //Find index of singleWarehouse
-    const index = warehouses.indexOf(singleWarehouse);
+     //Find index of warehouse
+    const index = warehouses.indexOf(warehouse);
     if (index === -1) {
         res.status(404).send('No warehouse found to edit.');
     }
 
      //Create editedWarehouse object
-     editedWarehouse = {
-        id: singleWarehouse.id, 
+     const editedWarehouse = {
+        id: warehouse.id, 
         name: req.body.name,
         address: req.body.address,
         city: req.body.city,
@@ -132,19 +132,19 @@ router.delete('/:id/delete', (req, res) => {
     const inventories = readInventory();
 
     //Find warehouse from ID
-    const singleWarehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
-    if (!singleWarehouse) {
+    const warehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+    if (!warehouse) {
         res.status(404).send('No warehouse found with that ID.');
     }
 
     //Find index of warehouse to splice from warehouses
-    const index = warehouses.indexOf(singleWarehouse);
+    const index = warehouses.indexOf(warehouse);
     if (index === -1) {
         res.status(404).send('No warehouse found to edit.');
     }
 
     //Filter inventories to get everything but the found warehouse inventory 
-    const newInventory = inventories.filter(inventory => inventory.warehouseID !== singleWarehouse.id)
+    const newInventory = inventories.filter(inventory => inventory.warehouseID !== warehouse.id)
 
     //Splice warehouses
     warehouses.splice(index, 1);
@@ -156,7 +156,7 @@ router.delete('/:id/delete', (req, res) => {
     writeInventory(newInventory);
 
     //Send response
-    res.status(201).send(`Deleted ${singleWarehouse.name} warehouse.`);
+    res.status(201).send(`Deleted ${warehouse.name} warehouse.`);
 })
 
 module.exports = router;
