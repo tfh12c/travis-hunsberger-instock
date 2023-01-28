@@ -39,4 +39,30 @@ router.get('/:id', (req, res) => {
     res.send(item);
 })
 
+//POST endpoint to add an item
+router.post('/add', (req, res) => {
+    const inventories = readInventory();
+
+    //New obkect, populated by request sent
+    const newItem = {
+        id: uniqid(),
+        warehouseID: req.body.warehouseID,
+        warehouseName: req.body.warehouseName, 
+        itemName: req.body.itemName,
+        description: req.body.description,
+        category: req.body.category, 
+        status: req.body.status,
+        quantity: req.body.quantity
+    }
+
+    //Push new inventory object into inventories data
+    inventories.push(newItem);
+
+    //Write the new inventory data to inventories file
+    writeInventory(inventories);
+
+    //Send response
+    res.status(201).json(newItem);
+})
+
 module.exports = router;
