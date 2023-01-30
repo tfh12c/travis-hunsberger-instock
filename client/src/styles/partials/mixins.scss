@@ -1,0 +1,90 @@
+@use './variables.scss';
+
+@mixin tablet {
+    @media (min-width: variables.$breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: variables.$breakpoint-desktop) {
+        @content;
+    }
+}
+
+/* Mobile Type Kit */ 
+@mixin mobile-page-header {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+
+@mixin mobile-subheader {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@mixin mobile-label-link-button {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mobile-table-header {
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+@mixin mobile-body-text {
+    font-size: .9375rem;
+    line-height: 1.625rem;
+}
+
+@mixin mobile-copyright-text {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mobile-form-error-text {
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+/* Desktop & Tablet Type Kit */
+@mixin page-header {
+    font-size: 2rem;
+    line-height: 2.5rem
+}
+
+@mixin subheader {
+    font-size: 1.5rem;
+    line-height: 2rem
+}
+
+@mixin label-link-button {
+    font-size: .875rem;
+    line-height: 1.375rem
+}
+
+@mixin table-header {
+    font-size: .75rem;
+    line-height: 1.125rem
+}
+
+@mixin body-text {
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+
+@mixin copyright-text {
+    font-size: .875rem;
+    line-height: 1.375rem;
+}
+
+@mixin form-error-text {
+    font-size: .75rem;
+    line-height: 1.125rem;
+}
+
+@mixin cta-button-mobile {
+    height: 2.25rem;
+    border-radius: 20px
+}
