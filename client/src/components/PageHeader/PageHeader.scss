@@ -1,0 +1,12 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.header {
+    background-color: variables.$color-background-dark;
+    display: flex;
+    flex-direction: column;
+
+    &__instock-image {
+        object-fit: contain;
+    }
+}

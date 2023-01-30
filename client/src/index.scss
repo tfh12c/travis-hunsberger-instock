@@ -1,3 +1,7 @@
+@use './styles/partials/mixins.scss';
+@use './styles/partials/variables.scss';
+@use './styles/partials/typography.scss';
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
