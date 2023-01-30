@@ -5,8 +5,58 @@
     background-color: variables.$color-background-dark;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 15rem;
 
-    &__instock-image {
-        object-fit: contain;
+    &__instock-link {
+        margin: 1.5rem 0;
+        text-decoration: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__nav {
+        width: 100%;
+    }
+
+    &__nav-list {
+        list-style: none;
+        margin: 0 0 1.5rem 0;
+        padding: 0;
+        display: flex;
+
+    }
+
+    &__nav-item {
+        width: 100%;
+        display: flex;
+    }
+
+    &__nav-link {
+        color: variables.$color-headers-placeholders;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        border-radius: 1.25rem;
+        @include mixins.mobile-label-link-button;
+        height: 2.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            color: variables.$color-white;
+        }
+
+        &.active {
+            background-color: variables.$color-primary-text;
+            color: variables.$color-white;
+        }
     }
 }
