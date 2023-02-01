@@ -29,7 +29,7 @@ function App() {
         <Route path="/inventory/:id" component={InventoryDetailsPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

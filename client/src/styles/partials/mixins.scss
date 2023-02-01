@@ -86,5 +86,26 @@
 
 @mixin cta-button-mobile {
     height: 2.25rem;
-    border-radius: 20px
+    width: 100%;
+    border-radius: 1.25rem;
+}
+
+@mixin cta-button {
+    height: 2.375rem;
+    width: auto;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+}
+
+@mixin mobile-form-field {
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+}
+
+@mixin form-field {
+    height: 2.375rem;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
 }
