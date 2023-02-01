@@ -7,6 +7,10 @@
     min-height: 10rem;
     border-radius: .25rem;
 
+    &__content-container {
+        box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
+    }
+
     &__header-content {
         padding: 0 1rem;
     }
