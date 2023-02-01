@@ -1,8 +1,10 @@
 import './WarehouseHomePage.scss';
+import axios from 'axios';
+import { useAxios } from '../../hooks/useAxios';
 
 function WarehouseHomePage() {
-
-
+    const { data, loading, error } = useAxios('http://localhost:4000/warehouse/');
+    console.log(data);
     
     return (
         <main className='warehouse-home-page'>
