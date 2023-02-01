@@ -1,0 +1,19 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.mobile-warehouse-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    border-top: 1px solid variables.$color-borders;
+
+    &__details-container {
+        display: flex;
+    }
+
+    &__warehouse-header {
+        margin: 0;
+        @include mixins.mobile-label-link-button;
+        color: variables.$color-headers-placeholders;
+    }
+}
