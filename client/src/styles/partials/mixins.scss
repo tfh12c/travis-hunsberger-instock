@@ -33,12 +33,12 @@
     line-height: 1rem;
 }
 
-@mixin mobile-body-text {
+@mixin mobile-body-large {
     font-size: .9375rem;
     line-height: 1.625rem;
 }
 
-@mixin mobile-copyright-text {
+@mixin mobile-body-medium {
     font-size: .8125rem;
     line-height: 1.25rem;
 }

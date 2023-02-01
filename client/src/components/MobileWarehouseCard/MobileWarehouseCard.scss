@@ -6,14 +6,77 @@
     flex-direction: column;
     margin-top: 1.5rem;
     border-top: 1px solid variables.$color-borders;
+    padding: 1rem 1rem 0;
 
     &__details-container {
         display: flex;
+        justify-content: space-around;
     }
 
     &__warehouse-header {
-        margin: 0;
-        @include mixins.mobile-label-link-button;
+        margin: 0 0 .5rem;
+        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+    }
+
+    &__name-icon-container {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    &__warehouse-name {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-cta;
+        margin: 0;
+    }
+
+    &__address-header {
+        margin: 1rem 0 0;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__address-street {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__address-city-country {
+        margin: .25rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__contact-header {
+        margin: 0 0 .5rem;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__contact-name {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0;
+        padding-top: 2px;
+    }
+
+    &__contact-info-header {
+        margin: 1.125rem 0 0;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__contact-number {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__contact-email {
+        margin: .25rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
     }
 }
