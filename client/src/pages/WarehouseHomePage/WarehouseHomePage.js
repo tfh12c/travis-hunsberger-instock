@@ -11,7 +11,7 @@ function WarehouseHomePage() {
     const [error, setError] = useState(null);
     const history = useHistory();
 
-    //Fetches all warehouse data from backend api
+    //GET all warehouse data from backend api
     const getWarehouses = async () => {
         setLoading(true);
         try {
