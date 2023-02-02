@@ -28,4 +28,40 @@
     &__body {
         @include mixins.mobile-body-large;
     }
+
+    &__button-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__cancel {
+        cursor: pointer;
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        border: 1px solid variables.$color-borders;
+        color: variables.$color-headers-placeholders;
+        @include mixins.label-link-button;
+        background-color: variables.$color-white;
+
+        &:hover {
+            border: 1px solid variables.$color-primary-cta;
+            color: variables.$color-primary-cta;
+        }
+    }
+
+    &__delete {
+        cursor: pointer;
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        border: none;
+        color: variables.$color-white;
+        @include mixins.label-link-button;
+        background-color: variables.$color-error;
+
+        &:hover {
+            background-color: variables.$color-background-dark;
+        }
+    }
 }
