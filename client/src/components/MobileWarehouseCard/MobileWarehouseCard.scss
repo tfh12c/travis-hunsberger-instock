@@ -18,16 +18,24 @@
         color: variables.$color-headers-placeholders;
     }
 
-    &__name-icon-container {
+    &__warehouse-link {
+        text-decoration: none;
+    }
+
+    &__name-icon-button {
         display: flex;
         cursor: pointer;
         align-items: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
     }
 
     &__warehouse-name {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-cta;
         margin: 0;
+        cursor: pointer;
     }
 
     &__address-header {

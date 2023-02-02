@@ -1,8 +1,9 @@
 import './MobileWarehouseCard.scss';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
-import { useEffect, useState } from 'react';
 import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 
 function MobileWarehouseCard({ warehouses, handleDelete }) {
@@ -18,6 +19,8 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
         setDeleteModal(false);
     }
 
+
+
     //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
     useEffect(() => {
         document.body.style.overflow = deleteModal ? "hidden" : "unset"
@@ -30,10 +33,12 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                     <div className='mobile-warehouse-card__details-container'>  
                         <div className='mobile-warehouse-card__warehouse-details'>
                             <h4 className='mobile-warehouse-card__warehouse-header'>WAREHOUSE</h4>
-                            <div className='mobile-warehouse-card__name-icon-container'>   
-                                <p className='mobile-warehouse-card__warehouse-name'>{warehouse.name}</p>
-                                <img className='mobile-warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
-                            </div>
+                            <Link to={`/warehouse/${warehouse.id}`} className='mobile-warehouse-card__warehouse-link'> 
+                                <button className='mobile-warehouse-card__name-icon-button'>   
+                                    <p className='mobile-warehouse-card__warehouse-name'>{warehouse.name}</p>
+                                    <img className='mobile-warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
+                                </button>
+                            </Link>
                             <h4 className='mobile-warehouse-card__address-header'>ADDRESS</h4>
                             <p className='mobile-warehouse-card__address-street'>{warehouse.address},</p>
                             <p className='mobile-warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
