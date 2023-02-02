@@ -2,7 +2,7 @@ import './MobileWarehouseCard.scss';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 
 function MobileWarehouseCard({ warehouses, handleDelete }) {
@@ -14,6 +14,11 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
         setWarehouse(warehouse);
         setDeleteModal(true)
     }
+
+    //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
+    useEffect(() => {
+        document.body.style.overflow = deleteModal ? "hidden" : "unset"
+    }, [deleteModal])
 
     return (
         <>
