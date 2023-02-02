@@ -9,6 +9,7 @@ function WarehouseHomePage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    //Fetches all warehouse data from backend api
     const getWarehouses = async () => {
         setLoading(true);
         try {
@@ -32,6 +33,7 @@ function WarehouseHomePage() {
         }
     }
 
+    //Runs when component mounts
     useEffect(() => {
         getWarehouses();
     }, [])

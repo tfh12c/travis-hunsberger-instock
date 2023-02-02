@@ -2,11 +2,22 @@ import './MobileWarehouseCard.scss';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
+import { useState } from 'react';
+import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 
 function MobileWarehouseCard({ warehouses, handleDelete }) {
+    const [warehouse, setWarehouse] = useState(null);
+    const [deleteModal, setDeleteModal] = useState(false);
+
+    const handleModal = (event, warehouse) => {
+        event.preventDefault();
+        setWarehouse(warehouse);
+        setDeleteModal(true)
+    }
 
     return (
         <>
+            {deleteModal && <DeleteWarehouseModal handleModal={handleModal} handleDelete={handleDelete} warehouse={warehouse}/>}
             {warehouses.map((warehouse) => (
                 <article key={warehouse.id} className='mobile-warehouse-card'>
                     <div className='mobile-warehouse-card__details-container'>  
@@ -29,7 +40,7 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                         </div>
                     </div>
                     <div className='mobile-warehouse-card__icons-container'>
-                        <button onClick={() => handleDelete(warehouse.id)} className='mobile-warehouse-card__trashcan-button'>  
+                        <button onClick={(event) => handleModal(event, warehouse)} className='mobile-warehouse-card__trashcan-button'>  
                             <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
                         </button>
                         <button className='mobile-warehouse-card__edit-button'>  
