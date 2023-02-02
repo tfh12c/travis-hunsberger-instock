@@ -3,7 +3,7 @@ import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 
-function MobileWarehouseCard({ warehouses }) {
+function MobileWarehouseCard({ warehouses, handleDelete }) {
 
     return (
         <>
@@ -29,7 +29,7 @@ function MobileWarehouseCard({ warehouses }) {
                         </div>
                     </div>
                     <div className='mobile-warehouse-card__icons-container'>
-                        <button className='mobile-warehouse-card__trashcan-button'>  
+                        <button onClick={() => handleDelete(warehouse.id)} className='mobile-warehouse-card__trashcan-button'>  
                             <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
                         </button>
                         <button className='mobile-warehouse-card__edit-button'>  
