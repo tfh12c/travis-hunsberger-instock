@@ -1,5 +1,6 @@
 import './WarehouseHomePage.scss';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import MobileWarehouseCard from '../../components/MobileWarehouseCard/MobileWarehouseCard';
 
@@ -8,6 +9,7 @@ function WarehouseHomePage() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const history = useHistory();
 
     //Fetches all warehouse data from backend api
     const getWarehouses = async () => {
@@ -27,6 +29,7 @@ function WarehouseHomePage() {
     const handleDelete = async (id) => {
         try {
             await axios.delete(`http://localhost:4000/warehouse/delete/${id}`);
+            history.push('/');
             getWarehouses();
         } catch (error) {
             console.log(error);

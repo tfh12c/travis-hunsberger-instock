@@ -9,10 +9,13 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
     const [warehouse, setWarehouse] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
 
-    const handleModal = (event, warehouse) => {
-        event.preventDefault();
+    const openDeleteModal = (warehouse) => {
         setWarehouse(warehouse);
         setDeleteModal(true)
+    }
+
+    const closeDeleteModal = () => {
+        setDeleteModal(false);
     }
 
     //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
@@ -22,7 +25,7 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
 
     return (
         <>
-            {deleteModal && <DeleteWarehouseModal handleModal={handleModal} handleDelete={handleDelete} warehouse={warehouse}/>}
+            {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
             {warehouses.map((warehouse) => (
                 <article key={warehouse.id} className='mobile-warehouse-card'>
                     <div className='mobile-warehouse-card__details-container'>  
@@ -45,7 +48,7 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                         </div>
                     </div>
                     <div className='mobile-warehouse-card__icons-container'>
-                        <button onClick={(event) => handleModal(event, warehouse)} className='mobile-warehouse-card__trashcan-button'>  
+                        <button onClick={(event) => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
                             <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
                         </button>
                         <button className='mobile-warehouse-card__edit-button'>  
