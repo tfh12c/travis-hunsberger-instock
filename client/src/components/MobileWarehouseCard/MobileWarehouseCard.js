@@ -25,7 +25,6 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
 
     return (
         <>
-            {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
             {warehouses.map((warehouse) => (
                 <article key={warehouse.id} className='mobile-warehouse-card'>
                     <div className='mobile-warehouse-card__details-container'>  
@@ -57,6 +56,7 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                     </div>
                 </article>
             ))}
+            {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
         </>
     )
 }
