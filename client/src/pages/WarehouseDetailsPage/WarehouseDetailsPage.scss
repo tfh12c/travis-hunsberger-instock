@@ -55,4 +55,68 @@
     &__edit-icon {
         filter: brightness(0) invert(1);
     }
+
+    &__warehouse-details {
+        border-top: 1px solid variables.$color-borders;
+    }
+
+    &__warehouse-address-header {
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+        margin: 1rem 0 .5rem 1rem;
+    }
+
+    &__warehouse-address {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0 0 1rem 1rem; 
+    }
+
+    &__contact-parent-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 1rem;
+    }
+
+    // &__contact-name-container {
+
+    // }
+
+    &__contact-name-header {
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__contact-name {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0 0 .25rem 0;
+    }
+
+    &__contact-position {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0;
+    }
+
+    // &__contact-info-container {
+
+    // }
+
+    &__contact-info-header {
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__contact-phone {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0 0 .25rem 0;
+    }
+
+    &__contact-email {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0;
+    }
 }

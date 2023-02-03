@@ -65,6 +65,22 @@ function WarehouseDetailsPage() {
                         <img className='warehouse-details-page__edit-icon' src={edit} alt='edit icon'></img>
                     </button>
                 </div>
+                <div className='warehouse-details-page__warehouse-details'> 
+                    <h3 className='warehouse-details-page__warehouse-address-header'>WAREHOUSE ADDRESS:</h3>
+                    <p className='warehouse-details-page__warehouse-address'>{warehouseData.address}, {warehouseData.city}, {warehouseData.country}</p>
+                    <div className='warehouse-details-page__contact-parent-container'> 
+                        <div className='warehouse-details-page__contact-name-container'>
+                            <h3 className='warehouse-details-page__contact-name-header'>CONTACT NAME:</h3>
+                            <p className='warehouse-details-page__contact-name'>{warehouseData.contact.name}</p>
+                            <p className='warehouse-details-page__contact-position'>{warehouseData.contact.position}</p>
+                        </div>
+                        <div className='warehouse-details-page__contact-info-container'>
+                            <h3 className='warehouse-details-page__contact-info-header'>CONTACT INFORMATION:</h3>
+                            <p className='warehouse-details-page__contact-phone'>{warehouseData.contact.phone}</p>
+                            <p className='warehouse-details-page__contact-email'>{warehouseData.contact.email}</p>
+                        </div>
+                    </div>
+                </div>
             </section>}
         </main>
     )
