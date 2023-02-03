@@ -55,6 +55,21 @@ router.get('/:id', (req, res) => {
     res.send(warehouse);
 })
 
+//GET endpoint for warehouse inventory
+router.get('/:id/inventory', (req, res) => {
+    const warehouses = readWarehouses();
+    const inventories = readInventory();
+
+    //Find warehouse by ID -> warehouse.id
+    const warehouse = warehouses.find(warehouse => warehouse.id === req.params.id);
+
+    //Find inventory matching warehouse.id to inventory.warehouseID
+    const inventory = inventories.filter(inventory => warehouse.id === inventory.warehouseID);
+
+    //Send response
+    res.send(inventory);
+})
+
 //POST endpoint to add warehouse
 router.post('/add', (req, res) => {
     const warehouses = readWarehouses();
