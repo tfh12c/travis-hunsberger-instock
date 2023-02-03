@@ -2,6 +2,8 @@ import './WarehouseDetailsPage.scss';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import arrowBack from '../../assets/icons/arrow_back.svg';
+import edit from '../../assets/icons/edit.svg';
 
 function WarehouseDetailsPage() {
     const [warehouseData, setWarehouseData] = useState(null);
@@ -50,7 +52,21 @@ function WarehouseDetailsPage() {
     console.log(inventoryData); 
 
     return (
-        <div>WarehouseDetailsPage</div>
+        <main className='warehouse-details-page'>
+            {warehouseData && <section className='warehouse-details-page__content-container'>
+                <div className='warehouse-details-page__header-content'>
+                    <div className='warehouse-details-page__header-container'>
+                        <button className='warehouse-details-page__arrow-back-button'>
+                            <img className='warehouse-details-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
+                        </button>
+                        <h1 className='warehouse-details-page__header'>{warehouseData.name}</h1>
+                    </div>
+                    <button className='warehouse-details-page__edit-button'>
+                        <img className='warehouse-details-page__edit-icon' src={edit} alt='edit icon'></img>
+                    </button>
+                </div>
+            </section>}
+        </main>
     )
 }
 

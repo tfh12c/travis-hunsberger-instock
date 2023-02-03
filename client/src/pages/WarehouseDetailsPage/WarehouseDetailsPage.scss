@@ -1,0 +1,58 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.warehouse-details-page {
+    background-color: variables.$color-white;
+    margin: -3.5rem 1rem;
+    border-radius: .25rem;
+
+    &__content-container {
+        box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
+    }
+
+    &__header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    &__header-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__arrow-back-button {
+        border: none;
+        background-color: transparent;
+        height: 2.25rem;
+        width: 2.25rem;
+        margin-top: .25rem;
+    }
+
+    &__arrow-back-icon {
+        cursor: pointer;
+    }
+
+    &__header {
+        color: variables.$color-primary-text;
+        @include mixins.mobile-page-header;
+    }
+
+    &__edit-button {
+        background-color: variables.$color-primary-cta;
+        border: none;
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 50%;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: variables.$color-background-dark;
+        }
+    }
+
+    &__edit-icon {
+        filter: brightness(0) invert(1);
+    }
+}
