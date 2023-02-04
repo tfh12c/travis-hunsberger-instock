@@ -28,7 +28,9 @@ function MobileInventoryCard({ inventoryData }) {
                         </div>
                         <div className='mobile-inventory-card__status-details'>
                             <h4 className='mobile-inventory-card__status-header'>STATUS</h4>
-                            <p className='mobile-inventory-card__status'>{inventory.status}</p>
+                            <p className='mobile-inventory-card__status'>
+                                <span className={inventory.quantity ? 'mobile-inventory-card__status-tag--instock' : 'mobile-inventory-card__status-tag--outofstock'}>{inventory.status}</span>
+                            </p>
                             <h4 className='mobile-inventory-card__quantity-header'>QTY</h4>
                             <p className='mobile-inventory-card__quantity'>{inventory.quantity}</p>
                             <button className='mobile-inventory-card__edit-button'>  

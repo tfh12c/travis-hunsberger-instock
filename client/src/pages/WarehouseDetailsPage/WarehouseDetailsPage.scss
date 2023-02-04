@@ -95,7 +95,7 @@
     &__contact-position {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
-        margin: 0;
+        margin: 0 0 1rem 0;
     }
 
     &__contact-info-container {
@@ -116,6 +116,6 @@
     &__contact-email {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
-        margin: 0;
+        margin: 0 0 1rem 0;
     }
 }
