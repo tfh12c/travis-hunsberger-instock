@@ -42,7 +42,7 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                             <h4 className='mobile-warehouse-card__address-header'>ADDRESS</h4>
                             <p className='mobile-warehouse-card__address-street'>{warehouse.address},</p>
                             <p className='mobile-warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
-                            <button onClick={(event) => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
+                            <button onClick={() => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
                                 <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
                             </button>
                         </div>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import edit from '../../assets/icons/edit.svg';
+import MobileInventoryCard from '../../components/MobileInventoryCard/MobileInventoryCard';
 
 function WarehouseDetailsPage() {
     const [warehouseData, setWarehouseData] = useState(null);
@@ -48,8 +49,8 @@ function WarehouseDetailsPage() {
         getInventoryOfWarehouse(id);
     }, [id])
 
-    console.log(warehouseData);
-    console.log(inventoryData); 
+    // console.log(warehouseData);
+    // console.log(inventoryData); 
 
     return (
         <main className='warehouse-details-page'>
@@ -83,6 +84,7 @@ function WarehouseDetailsPage() {
                         </div>
                     </div>
                 </div>
+                {inventoryData && <MobileInventoryCard inventoryData={inventoryData}/>}
             </section>}
         </main>
     )
