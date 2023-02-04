@@ -74,13 +74,12 @@
 
     &__contact-parent-container {
         display: flex;
-        justify-content: space-around;
         padding: 0 1rem;
     }
 
-    // &__contact-name-container {
-
-    // }
+    &__contact-name-container {
+        flex: 1;
+    }
 
     &__contact-name-header {
         @include mixins.mobile-table-header;
@@ -99,9 +98,9 @@
         margin: 0;
     }
 
-    // &__contact-info-container {
-
-    // }
+    &__contact-info-container {
+        flex: 1;
+    }
 
     &__contact-info-header {
         @include mixins.mobile-table-header;
