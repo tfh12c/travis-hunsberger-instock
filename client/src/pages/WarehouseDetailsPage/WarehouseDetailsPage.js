@@ -46,13 +46,15 @@ function WarehouseDetailsPage() {
     useEffect(() => {
         getWarehouseById(id);
         getInventoryOfWarehouse(id);
-    }, [])
+    }, [id])
 
     console.log(warehouseData);
     console.log(inventoryData); 
 
     return (
         <main className='warehouse-details-page'>
+            {error && <p>{error}</p>}
+            {loading && <p>Loading...</p>}
             {warehouseData && <section className='warehouse-details-page__content-container'>
                 <div className='warehouse-details-page__header-content'>
                     <div className='warehouse-details-page__header-container'>

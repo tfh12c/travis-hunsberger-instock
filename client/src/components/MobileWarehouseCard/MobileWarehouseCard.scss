@@ -12,6 +12,10 @@
         justify-content: space-around;
     }
 
+    &__warehouse-details {
+        flex: 1;
+    }
+
     &__warehouse-header {
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
@@ -56,6 +60,10 @@
         color: variables.$color-primary-text;
     }
 
+    &__contact-details {
+        flex: 1;
+    }
+
     &__contact-header {
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
@@ -87,16 +95,17 @@
         color: variables.$color-primary-text;
     }
 
-    &__icons-container {
-        display: flex;
-        justify-content: space-around;
-        margin: 1rem 0;
-    }
+    // &__icons-container {
+    //     display: flex;
+    //     justify-content: space-around;
+    //     margin: 1rem 0;
+    // }
 
     &__trashcan-button {
-        margin-right: 5rem;
         border: none;
         background: transparent;
+        padding: 0;
+        margin: 1rem 0 1.5rem;
     }
 
     &__trashcan {
@@ -104,9 +113,10 @@
     }
 
     &__edit-button {
-        margin-left: 5rem;
+        margin: 1rem 0 1.5rem 6rem;
         border: none;
         background: transparent;
+        padding: 0;
     }
 
     &__edit {

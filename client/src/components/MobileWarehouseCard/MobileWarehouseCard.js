@@ -42,6 +42,9 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                             <h4 className='mobile-warehouse-card__address-header'>ADDRESS</h4>
                             <p className='mobile-warehouse-card__address-street'>{warehouse.address},</p>
                             <p className='mobile-warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
+                            <button onClick={(event) => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
+                                <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
+                            </button>
                         </div>
                         <div className='mobile-warehouse-card__contact-details'>
                             <h4 className='mobile-warehouse-card__contact-header'>CONTACT NAME</h4>
@@ -49,16 +52,19 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
                             <h4 className='mobile-warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
                             <p className='mobile-warehouse-card__contact-number'>{warehouse.contact.phone}</p>
                             <p className='mobile-warehouse-card__contact-email'>{warehouse.contact.email}</p>
+                            <button className='mobile-warehouse-card__edit-button'>  
+                                <img className='mobile-warehouse-card__edit' src={edit} alt='edit icon'/>
+                            </button>
                         </div>
                     </div>
-                    <div className='mobile-warehouse-card__icons-container'>
+                    {/* <div className='mobile-warehouse-card__icons-container'>
                         <button onClick={(event) => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
                             <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
                         </button>
                         <button className='mobile-warehouse-card__edit-button'>  
                             <img className='mobile-warehouse-card__edit' src={edit} alt='edit icon'/>
                         </button>
-                    </div>
+                    </div> */}
                 </article>
             ))}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
