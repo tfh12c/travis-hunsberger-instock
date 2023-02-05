@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
+import EditWarehouseForm from '../../components/EditWarehouseForm/EditWarehouseForm';
 
 function EditWarehousePage() {
     const [data, setData] = useState(null);
@@ -41,9 +42,9 @@ function EditWarehousePage() {
                     </button>
                     <h1 className='edit-warehouse-page__header'>Edit Warehouse</h1>
                 </div>
-                <h2 className='edit-warehouse-page__subheader'>Warehouse Details</h2>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
+                {data && <EditWarehouseForm warehouse={data} />}
             </section>
         </main>
     )

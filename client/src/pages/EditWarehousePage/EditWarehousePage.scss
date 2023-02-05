@@ -30,10 +30,4 @@
         @include mixins.mobile-page-header;
         color: variables.$color-primary-text;
     }
-
-    &__subheader {
-        @include mixins.mobile-subheader;
-        color: variables.$color-primary-text;
-        margin-left: 1rem;
-    }
 }
