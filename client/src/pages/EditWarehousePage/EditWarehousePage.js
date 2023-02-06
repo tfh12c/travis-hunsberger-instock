@@ -31,7 +31,7 @@ function EditWarehousePage() {
         getWarehouseById(id);
     }, [id])
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <main className='edit-warehouse-page'>
@@ -44,7 +44,7 @@ function EditWarehousePage() {
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
-                {data && <EditWarehouseForm warehouse={data} />}
+                {data && <EditWarehouseForm warehouse={data} id={id} />}
             </section>
         </main>
     )

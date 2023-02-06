@@ -1,0 +1,72 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.edit-warehouse-form {
+
+    &__warehouse-details-container {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid variables.$color-borders;
+        padding: 0 1rem .5rem;
+    }
+
+    &__contact-details-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    &__header {
+        @include mixins.mobile-subheader;
+        color: variables.$color-primary-text;
+    }
+
+    &__label {
+        @include mixins.mobile-label-link-button;
+        color: variables.$color-primary-text;
+        font-weight: 600;
+        margin-bottom: .25rem;
+    }
+
+    &__input {
+        @include mixins.mobile-form-field;
+        color: variables.$color-primary-text;
+        border: 1px solid variables.$color-borders;
+        margin-bottom: 1rem;
+    }
+
+    &__button-container {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: variables.$color-background-light;
+    }
+
+    &__cancel-button {
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        background-color: variables.$color-white;
+        border: 1px solid variables.$color-borders;
+        color: variables.$color-primary-text;
+
+        &:hover {
+            border: 1px solid variables.$color-primary-cta;
+            color: variables.$color-primary-cta;
+            cursor: pointer;
+        }
+    }
+
+    &__save-button {
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        background-color: variables.$color-primary-cta;
+        border: none;
+        color: variables.$color-white;
+
+        &:hover {
+            background-color: variables.$color-background-dark;
+            cursor: pointer;
+        }
+    }
+}
