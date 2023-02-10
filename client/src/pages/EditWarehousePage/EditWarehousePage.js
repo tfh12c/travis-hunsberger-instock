@@ -31,8 +31,6 @@ function EditWarehousePage() {
         getWarehouseById(id);
     }, [id])
 
-    // console.log(data);
-
     return (
         <main className='edit-warehouse-page'>
             <section className='edit-warehouse-page__content-container'>
