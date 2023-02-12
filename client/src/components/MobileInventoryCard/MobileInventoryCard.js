@@ -3,9 +3,7 @@ import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 
-function MobileInventoryCard({ inventoryData }) {
-
-    console.log(inventoryData);    
+function MobileInventoryCard({ inventoryData }) { 
 
     return (
         <>

@@ -121,11 +121,11 @@ router.put('/edit/:id', (req, res) => {
         name: req.body.name,
         address: req.body.address,
         city: req.body.city,
-        country: req.body.city,
+        country: req.body.country,
         contact: {
             name: req.body.contactName,
-            position: req.body.contactPosition,
-            phone: req.body.contactPhone,
+            position: req.body.position,
+            phone: req.body.phone,
             email: req.body.email
         }
      }

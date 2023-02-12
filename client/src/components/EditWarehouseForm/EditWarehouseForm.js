@@ -1,6 +1,8 @@
 import './EditWarehouseForm.scss';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
+import axios from 'axios';
 
 function EditWarehouseForm({ warehouse, id }) {
     const [formValues, setFormValues] = useState({
@@ -14,11 +16,12 @@ function EditWarehouseForm({ warehouse, id }) {
         email: warehouse.contact.email
     });
     const [formError, setFormError] = useState(null);
+    const history = useHistory();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // maps over formValues for validation
+        // Loops over formValues obj for validation
         Object.entries(formValues).forEach(([name, value]) => {
             if (!value) {
                 setFormError(
@@ -27,10 +30,26 @@ function EditWarehouseForm({ warehouse, id }) {
                         <p className='edit-warehouse-form__error-text'>This field is required</p>
                     </div>
                 );
-            } else {
-                //AXIOS POST HERE
             }
         })
+
+        // Axios PUT request
+        try {
+            await axios.put(`http://localhost:4000/warehouse/edit/${id}`, {
+                id,
+                name: event.target.name.value,
+                address: event.target.address.value,
+                city: event.target.city.value,
+                country: event.target.country.value,
+                contactName: event.target.contactName.value,
+                position: event.target.position.value,
+                phone: event.target.phone.value,
+                email: event.target.email.value
+            })
+            history.push(`/warehouse/${id}`);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const handleChange = (event) => {
