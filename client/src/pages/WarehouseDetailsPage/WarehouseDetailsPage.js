@@ -28,7 +28,7 @@ function WarehouseDetailsPage() {
         }
     }
 
-    //GET inventory of warehouse by ID
+    // GET inventory of warehouse by ID
     const getInventoryOfWarehouse = async (id) => {
         setLoading(true);
         try {
