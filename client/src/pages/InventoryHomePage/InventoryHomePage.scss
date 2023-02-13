@@ -1,0 +1,55 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.inventory-home-page {
+    background-color: variables.$color-white;
+    margin: -3.5rem 1rem;
+    // min-height: 10rem;
+    border-radius: .25rem;
+
+    &__content-container {
+        box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
+    }
+
+    &__header-content {
+        padding: 0 1rem;
+    }
+
+    &__header {
+        margin: 0;
+        padding: 1.5rem 0 1rem 0;
+    }
+
+    &__search-input {
+        display: block;
+        @include mixins.mobile-form-field;
+        border: 1px solid variables.$color-borders;
+        background-image: url('../../assets/icons/search.svg');
+        background-repeat: no-repeat;
+        background-position: 96% 50%;
+        margin-bottom: 1rem;
+
+        &:focus {
+            border: 1px solid variables.$color-primary-cta;
+        }
+        
+        &::placeholder {
+            color: variables.$color-headers-placeholders;
+        }
+    }
+
+    &__add-warehouse-button {
+        display: block;
+        @include mixins.cta-button-mobile;
+        @include mixins.mobile-label-link-button;
+        border: none;
+        background-color: variables.$color-primary-cta;
+        color: variables.$color-white;
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+
+        &:hover {
+            background-color: variables.$color-background-dark;
+        }
+    }
+}

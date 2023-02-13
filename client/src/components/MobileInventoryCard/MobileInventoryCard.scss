@@ -1,0 +1,127 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.mobile-inventory-card {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid variables.$color-borders;
+    padding: 1rem 1rem 0;
+
+    &__details-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__item-details {
+        flex: 1;
+    }
+
+    &__inventory-header {
+        margin: 0 0 .5rem;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__name-icon-button {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__inventory-name {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-cta;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    &__category-header {
+        margin: 1rem 0 0;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__category {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__status-details {
+        flex: 1;
+    }
+
+    &__status-header {
+        margin: 0 0 .5rem;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__status {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0;
+        padding-top: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    &__status-tag {
+        &--instock {
+            @include mixins.mobile-tag-instock;
+        }
+        &--outofstock {
+            @include mixins.mobile-tag-outofstock;
+        }
+    }
+
+    &__quantity-header {
+        margin: 1.125rem 0 0;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__quantity {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__warehouse-header {
+        margin: 1.125rem 0 0;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__warehouse {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__trashcan-button {
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 1rem 0 1.5rem;
+    }
+
+    &__trashcan {
+        cursor: pointer;
+        margin-top: 3.75rem;
+    }
+
+    &__edit-button {
+        margin: 1rem 0 1.5rem 6rem;
+        border: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    &__edit {
+        cursor: pointer;
+    }
+}
