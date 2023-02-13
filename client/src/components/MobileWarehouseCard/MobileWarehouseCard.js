@@ -66,14 +66,6 @@ function MobileWarehouseCard({ warehouses, getWarehouses }) {
                             </button>
                         </div>
                     </div>
-                    {/* <div className='mobile-warehouse-card__icons-container'>
-                        <button onClick={(event) => openDeleteModal(warehouse)} className='mobile-warehouse-card__trashcan-button'>  
-                            <img className='mobile-warehouse-card__trashcan' src={trashcan} alt='trashcan icon'/>
-                        </button>
-                        <button className='mobile-warehouse-card__edit-button'>  
-                            <img className='mobile-warehouse-card__edit' src={edit} alt='edit icon'/>
-                        </button>
-                    </div> */}
                 </article>
             ))}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
