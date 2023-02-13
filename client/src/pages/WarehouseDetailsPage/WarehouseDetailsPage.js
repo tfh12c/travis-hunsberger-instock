@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import edit from '../../assets/icons/edit.svg';
-import MobileInventoryCard from '../../components/MobileInventoryCard/MobileInventoryCard';
+import MobileWarehouseInventoryCard from '../../components/MobileWarehouseInventoryCard/MobileWarehouseInventoryCard';
 
 function WarehouseDetailsPage() {
     const [warehouseData, setWarehouseData] = useState(null);
@@ -84,7 +84,7 @@ function WarehouseDetailsPage() {
                         </div>
                     </div>
                 </div>
-                {inventoryData && <MobileInventoryCard inventoryData={inventoryData}/>}
+                {inventoryData && <MobileWarehouseInventoryCard inventoryData={inventoryData}/>}
             </section>}
         </main>
     )

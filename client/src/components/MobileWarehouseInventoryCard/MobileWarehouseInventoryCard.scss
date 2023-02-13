@@ -1,7 +1,7 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 
-.mobile-inventory-card {
+.mobile-warehouse-inventory-card {
     display: flex;
     flex-direction: column;
     border-top: 1px solid variables.$color-borders;
