@@ -1,17 +1,28 @@
 import './MobileInventoryCard.scss';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+// import { Link } from 'react-router-dom';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
 
-function MobileInventoryCard({ inventory, handleDelete }) {
+function MobileInventoryCard({ inventory, getInventory }) {
     const [item, setItem] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
 
-    const openDeleteModal = (inventory) => {
-        setItem(inventory);
+      const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/inventory/delete/${id}`);
+            setDeleteModal(false);
+            getInventory();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const openDeleteModal = (item) => {
+        setItem(item);
         setDeleteModal(true);
     }
 
@@ -39,7 +50,7 @@ function MobileInventoryCard({ inventory, handleDelete }) {
                             {/* </Link> */}
                             <h4 className='mobile-inventory-card__category-header'>CATEGORY</h4>
                             <p className='mobile-inventory-card__category'>{item.category}</p>
-                            <button className='mobile-inventory-card__trashcan-button'>  
+                            <button onClick={() => openDeleteModal(item)} className='mobile-inventory-card__trashcan-button'>  
                                 <img className='mobile-inventory-card__trashcan' src={trashcan} alt='trashcan icon'/>
                             </button>
                         </div>

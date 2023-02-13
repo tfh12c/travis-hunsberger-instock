@@ -1,0 +1,63 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.delete-inventory-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    &__modal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        background-color: variables.$color-white;
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    &__body {
+        @include mixins.mobile-body-large;
+    }
+
+    &__button-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__cancel {
+        cursor: pointer;
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        border: 1px solid variables.$color-borders;
+        color: variables.$color-headers-placeholders;
+        @include mixins.label-link-button;
+        background-color: variables.$color-white;
+
+        &:hover {
+            border: 1px solid variables.$color-primary-cta;
+            color: variables.$color-primary-cta;
+        }
+    }
+
+    &__delete {
+        cursor: pointer;
+        width: 100%;
+        @include mixins.cta-button-mobile;
+        border: none;
+        color: variables.$color-white;
+        @include mixins.label-link-button;
+        background-color: variables.$color-error;
+
+        &:hover {
+            background-color: variables.$color-background-dark;
+        }
+    }
+}

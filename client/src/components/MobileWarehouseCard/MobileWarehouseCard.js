@@ -1,14 +1,25 @@
 import './MobileWarehouseCard.scss';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 
-function MobileWarehouseCard({ warehouses, handleDelete }) {
+function MobileWarehouseCard({ warehouses, getWarehouses }) {
     const [warehouse, setWarehouse] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/warehouse/delete/${id}`);
+            setDeleteModal(false);
+            getWarehouses();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const openDeleteModal = (warehouse) => {
         setWarehouse(warehouse);
@@ -18,8 +29,6 @@ function MobileWarehouseCard({ warehouses, handleDelete }) {
     const closeDeleteModal = () => {
         setDeleteModal(false);
     }
-
-
 
     //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
     useEffect(() => {
