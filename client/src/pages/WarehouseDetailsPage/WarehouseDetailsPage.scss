@@ -36,7 +36,6 @@
 
     &__header {
         color: variables.$color-primary-text;
-        @include mixins.mobile-page-header;
     }
 
     &__edit-button {

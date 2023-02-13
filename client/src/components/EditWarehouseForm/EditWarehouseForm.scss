@@ -17,7 +17,6 @@
     }
 
     &__header {
-        @include mixins.mobile-subheader;
         color: variables.$color-primary-text;
     }
 

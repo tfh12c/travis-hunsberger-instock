@@ -21,10 +21,6 @@
         padding: 2rem 1rem 1.5rem;
     }
 
-    &__header {
-        @include mixins.mobile-page-header;
-    }
-
     &__body {
         @include mixins.mobile-body-large;
     }

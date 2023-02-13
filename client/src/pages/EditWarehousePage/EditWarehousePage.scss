@@ -27,7 +27,6 @@
     }
 
     &__header {
-        @include mixins.mobile-page-header;
         color: variables.$color-primary-text;
     }
 }

@@ -13,16 +13,6 @@
 }
 
 /* Mobile Type Kit */ 
-@mixin mobile-page-header {
-    font-size: 1.75rem;
-    line-height: 2.25rem;
-}
-
-@mixin mobile-subheader {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-}
-
 @mixin mobile-label-link-button {
     font-size: .8125rem;
     line-height: 1.25rem;
@@ -49,16 +39,6 @@
 }
 
 /* Desktop & Tablet Type Kit */
-@mixin page-header {
-    font-size: 2rem;
-    line-height: 2.5rem
-}
-
-@mixin subheader {
-    font-size: 1.5rem;
-    line-height: 2rem
-}
-
 @mixin label-link-button {
     font-size: .875rem;
     line-height: 1.375rem
