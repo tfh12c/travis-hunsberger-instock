@@ -1,5 +1,6 @@
 import './AddWarehousePage.scss';
 import arrowBack from '../../assets/icons/arrow_back.svg';
+import AddWarehouseForm from '../../components/AddWarehouseForm/AddWarehouseForm';
 
 function AddWarehousePage() {
 
@@ -10,11 +11,9 @@ function AddWarehousePage() {
                     <button className='add-warehouse-page__arrow-back-button'>
                         <img className='add-warehouse-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
                     </button>
-                    <h2 className='add-warehouse-page__header'>Add New Warehouse</h2>
+                    <h1 className='add-warehouse-page__header'>Add New Warehouse</h1>
                 </div>
-                {/* {error && <p>{error}</p>}
-                {loading && <p>Loading...</p>}
-                {data && <addWarehouseForm warehouse={data} id={id} />} */}
+                <AddWarehouseForm />
             </section>
         </main>
     )

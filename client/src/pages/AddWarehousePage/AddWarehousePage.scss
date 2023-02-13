@@ -12,7 +12,7 @@
 
     &__header-content { 
         display: flex;
-        padding: 0 1rem;
+        padding: 0 1rem 0 .5rem;
         border-bottom: 1px solid variables.$color-borders;
     }
 
@@ -27,8 +27,7 @@
     }
 
     &__header {
-        // @include mixins.mobile-page-header;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: variables.$color-primary-text;
     }
 }

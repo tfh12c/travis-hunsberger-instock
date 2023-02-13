@@ -33,7 +33,6 @@ function EditWarehouseForm({ warehouse, id }) {
             }
         })
 
-        // Axios PUT request
         try {
             await axios.put(`http://localhost:4000/warehouse/edit/${id}`, {
                 id,
@@ -100,8 +99,8 @@ function EditWarehouseForm({ warehouse, id }) {
                     {!formValues.email && formError}
                 </div>
                 <div className='edit-warehouse-form__button-container'>
-                    <button className='edit-warehouse-form__cancel-button' type='submit'>Cancel</button>
-                    <button className='edit-warehouse-form__save-button'>Save</button>
+                    <button className='edit-warehouse-form__cancel-button'>Cancel</button>
+                    <button className='edit-warehouse-form__save-button' type='submit'>Save</button>
                 </div>
             </form>
         </>

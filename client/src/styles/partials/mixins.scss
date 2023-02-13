@@ -16,11 +16,13 @@
 @mixin mobile-label-link-button {
     font-size: .8125rem;
     line-height: 1.25rem;
+    font-weight: bold;
 }
 
 @mixin mobile-table-header {
     font-size: .6875rem;
     line-height: 1rem;
+    font-weight: bold;
 }
 
 @mixin mobile-body-large {
@@ -41,12 +43,14 @@
 /* Desktop & Tablet Type Kit */
 @mixin label-link-button {
     font-size: .875rem;
-    line-height: 1.375rem
+    line-height: 1.375rem;
+    font-weight: bold;
 }
 
 @mixin table-header {
     font-size: .75rem;
-    line-height: 1.125rem
+    line-height: 1.125rem;
+    font-weight: bold;
 }
 
 @mixin body-text {

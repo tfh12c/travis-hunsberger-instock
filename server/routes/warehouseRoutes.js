@@ -82,7 +82,7 @@ router.post('/add', (req, res) => {
         city: req.body.city,
         country: req.body.country,
         contact: {
-            name: req.body.name,
+            name: req.body.contactName,
             position: req.body.position, 
             phone: req.body.phone,
             email: req.body.email

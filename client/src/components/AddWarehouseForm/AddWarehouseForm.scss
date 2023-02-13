@@ -1,7 +1,7 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 
-.edit-warehouse-form {
+.add-warehouse-form {
 
     &__warehouse-details-container {
         display: flex;
@@ -92,6 +92,7 @@
         background-color: variables.$color-primary-cta;
         border: none;
         color: variables.$color-white;
+        font-size: .75rem;
 
         &:hover {
             background-color: variables.$color-background-dark;
