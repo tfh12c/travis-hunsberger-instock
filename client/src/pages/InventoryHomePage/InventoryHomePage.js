@@ -26,6 +26,16 @@ function InventoryHomePage() {
         }
     }
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/inventory/delete/${id}`);
+            history.push('/inventory');
+            getInventory();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     //Runs when component mounts
     useEffect(() => {
         getInventory();
@@ -41,7 +51,7 @@ function InventoryHomePage() {
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
-                {data && <MobileInventoryCard inventory={data} />}
+                {data && <MobileInventoryCard inventory={data} handleDelete={handleDelete} />}
             </section>
         </main>
     )

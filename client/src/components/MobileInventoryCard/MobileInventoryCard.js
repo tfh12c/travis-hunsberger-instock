@@ -1,9 +1,28 @@
 import './MobileInventoryCard.scss';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
+import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
 
-function MobileInventoryCard({ inventory }) {
+function MobileInventoryCard({ inventory, handleDelete }) {
+    const [item, setItem] = useState(null);
+    const [deleteModal, setDeleteModal] = useState(false);
+
+    const openDeleteModal = (inventory) => {
+        setItem(inventory);
+        setDeleteModal(true);
+    }
+
+    const closeDeleteModal = () => {
+        setDeleteModal(false);
+    }
+
+    //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
+    useEffect(() => {
+        document.body.style.overflow = deleteModal ? "hidden" : "unset"
+    }, [deleteModal])
 
     return (
         <>
@@ -39,7 +58,8 @@ function MobileInventoryCard({ inventory }) {
                         </div>
                     </div>
             </article>
-           ))} 
+           ))}
+           {deleteModal && <DeleteInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
         </>
     )
 }
