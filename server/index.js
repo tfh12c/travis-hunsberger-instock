@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const warehouseRoutes = require('./routes/warehouseRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
 
 //Config
 require('dotenv').config();
@@ -15,6 +16,7 @@ app.use(cors());
 //Routes
 app.use('/warehouse', warehouseRoutes);
 app.use('/inventory', inventoryRoutes);
+app.use('/category', categoryRoutes);
 
 //Start server
 app.listen(port, () => {
