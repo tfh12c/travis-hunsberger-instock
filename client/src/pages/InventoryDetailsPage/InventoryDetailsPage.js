@@ -26,8 +26,6 @@ function InventoryDetailsPage() {
         }
     }
 
-    console.log(data);
-
     // Runs when component mounts 
     useEffect(() => {
         getInventoryById(id);
