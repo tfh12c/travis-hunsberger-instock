@@ -26,10 +26,11 @@ function InventoryDetailsPage() {
         }
     }
 
+    console.log(data);
+
     // Runs when component mounts 
     useEffect(() => {
         getInventoryById(id);
-        console.log(data);
     }, [id])
 
     return (
@@ -47,6 +48,26 @@ function InventoryDetailsPage() {
                     <button className='inventory-details-page__edit-button'>
                         <img className='inventory-details-page__edit-icon' src={edit} alt='edit icon'></img>
                     </button>
+                </div>
+                <div className='inventory-details-page__item-details'>
+                    <h4 className='inventory-details-page__item-header'>ITEM DESCRIPTION:</h4>
+                    <p className='inventory-details-page__description'>{data.description}</p>
+                    <h4 className='inventory-details-page__item-header'>CATEGORY:</h4>
+                    <p className='inventory-details-page__category'>{data.category}</p>
+                    <div className='inventory-details-page__status-quantity-container'>
+                        <div className='inventory-details-page__status-content'>
+                            <h4 className='inventory-details-page__item-header'>STATUS:</h4>
+                            <p className='inventory-details-page__status'>
+                                <span className={data.quantity ? 'inventory-details-page__status-tag--instock' : 'inventory-details-age__status-tag--outofstock'}>{data.status}</span>
+                            </p>
+                        </div>
+                        <div className='inventory-details-page__quantity-content'>
+                            <h4 className='inventory-details-page__item-header'>QUANTITY:</h4>
+                            <p className='inventory-details-page__quantity'>{data.quantity}</p>
+                        </div>
+                    </div>
+                    <h4 className='inventory-details-page__item-header'>WAREHOUSE:</h4>
+                    <p className='inventory-details-page__warehouse'>{data.warehouseName}</p>
                 </div>
             </section>}
         </main>

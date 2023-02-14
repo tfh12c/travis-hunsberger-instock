@@ -54,4 +54,69 @@
     &__edit-icon {
         filter: brightness(0) invert(1);
     }
+
+    &__item-details {
+        border-top: 1px solid variables.$color-borders;
+        padding: 1rem 1rem;
+    }
+
+    &__item-header {
+        margin: 0 0 .5rem;
+        @include mixins.mobile-table-header;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__description {
+        margin: .5rem 0 1rem;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__category {
+        margin: .5rem 0 1rem;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__status-quantity-container {
+        display: flex;
+    }
+
+    &__status-content {
+        flex: 1;
+    }
+
+    &__status {
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+        margin: 0;
+        padding-top: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    &__status-tag {
+        &--instock {
+            @include mixins.mobile-tag-instock;
+        }
+        &--outofstock {
+            @include mixins.mobile-tag-outofstock;
+        }
+    }
+
+    &__quantity-content {
+        flex: 1;
+    }
+
+    &__quantity {
+        margin: .5rem 0 1rem;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__warehouse {
+        margin: .5rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
 }
