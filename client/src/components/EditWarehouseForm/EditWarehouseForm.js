@@ -18,6 +18,12 @@ function EditWarehouseForm({ warehouse, id }) {
     const [formError, setFormError] = useState(null);
     const history = useHistory();
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        // [name] = dynamic value
+        setFormValues({ ...formValues, [name]: value, });
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -50,31 +56,25 @@ function EditWarehouseForm({ warehouse, id }) {
             console.log(error);
         }
     }
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        // [name] = dynamic value
-        setFormValues({ ...formValues, [name]: value, });
-    }
      
     return (
         <>
             <form className='edit-warehouse-form' onSubmit={handleSubmit}>
                 <div className='edit-warehouse-form__warehouse-details-container'>
                     <h2 className='edit-warehouse-form__header'>Warehouse Details</h2>    
-                    {/* Name Label/Input */}
+                    {/* Warehouse Name Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='name'>Warehouse Name</label>
                     <input className='edit-warehouse-form__input' type='text' name='name' id='name' onChange={handleChange} value={formValues.name}></input>
                     {!formValues.name && formError}
-                    {/* Address Label/Input */}
+                    {/* Warehouse Address Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='address'>Street Address</label>
                     <input className='edit-warehouse-form__input' type='text' name='address' id='address' onChange={handleChange} value={formValues.address}></input>
                     {!formValues.address && formError}
-                    {/* City Label/Input */}
+                    {/* Warehouse City Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='city'>City</label>
                     <input className='edit-warehouse-form__input' type='text' name='city' id='city' onChange={handleChange} value={formValues.city}></input>
                     {!formValues.city && formError}
-                    {/* Country Label/Input */}
+                    {/* Warehouse Country Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='country'>Country</label>
                     <input className='edit-warehouse-form__input' type='text' name='country' id='country' onChange={handleChange} value={formValues.country}></input>
                     {!formValues.country && formError}
@@ -85,15 +85,15 @@ function EditWarehouseForm({ warehouse, id }) {
                     <label className='edit-warehouse-form__label' htmlFor='contactName'>Contact Name</label>
                     <input className='edit-warehouse-form__input' type='text' name='contactName' id='contactName' onChange={handleChange} value={formValues.contactName}></input>
                     {!formValues.contactName && formError}
-                    {/* Position Label/Input */}
+                    {/* Contact Position Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='position'>Position</label>
                     <input className='edit-warehouse-form__input' type='text' name='position' id='position' onChange={handleChange} value={formValues.position}></input>
                     {!formValues.position && formError}
-                    {/* Phone Number Label/Input */}
+                    {/* Contact Phone Number Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='phone'>Phone Number</label>
                     <input className='edit-warehouse-form__input' type='tel' name='phone' id='phone' onChange={handleChange} value={formValues.phone}></input>
                     {!formValues.phone && formError}
-                    {/* Email Label/Input */}
+                    {/* Contact Email Label/Input */}
                     <label className='edit-warehouse-form__label' htmlFor='email'>Email</label>
                     <input className='edit-warehouse-form__input' type='email' name='email' id='email' onChange={handleChange} value={formValues.email}></input>
                     {!formValues.email && formError}
