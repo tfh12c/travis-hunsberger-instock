@@ -70,17 +70,18 @@ function EditInventoryForm({ item, categories, warehouses }) {
                     {!formValues.itemName && formError}
                     {/* Item Description Label/Input */}
                     <label className='edit-inventory-form__label' htmlFor='description'>Description</label>
-                    <textarea className='edit-inventory-form__input' type='text' name='description' id='description' onChange={handleChange} value={formValues.description}></textarea>
+                    <textarea className='edit-inventory-form__input-textarea' type='text' name='description' id='description' onChange={handleChange} value={formValues.description}></textarea>
                     {!formValues.description && formError}
                     {/* Item Category Label/Input */}
                     <label className='edit-inventory-form__label' htmlFor='category'>Category</label>
-                    <select className='edit-inventory-form__input' name='category' id='category' onChange={handleChange} value={formValues.category}>
+                    <select className='edit-inventory-form__select' name='category' id='category' onChange={handleChange} value={formValues.category}>
                         {categories.map((category) => { return (<option key={category}>{category}</option>) })}
                     </select>
                 </div>
                 <div className='edit-inventory-form__item-availability-container'>
                     <h2 className='edit-inventory-form__header'>Item Availability</h2>       
-                    {/* In Stock Status Label/Input */}
+                    {/* In Stock Status Label/Radio Buttons */}
+                    <label className='edit-inventory-form__label' htmlFor='status'>Status</label>
                     <div className='edit-inventory-form__radio-button-container'>
                         <div className='edit-inventory-form__instock-option'> 
                             <input className='edit-inventory-form__radio-button' type='radio' name='status' id='inStock' onChange={handleChange} value={formValues.status} checked={formValues.quantity}></input>
@@ -97,7 +98,7 @@ function EditInventoryForm({ item, categories, warehouses }) {
                     {!formValues.quantity && formError}
                     {/* Warehouse Label/Input */}
                     <label className='edit-inventory-form__label' htmlFor='warehouse'>Warehouse</label>
-                    <select className='edit-inventory-form__input' name='warehouse' id='warehouse' onChange={handleChange} value={formValues.warehouseName}>
+                    <select className='edit-inventory-form__select' name='warehouse' id='warehouse' onChange={handleChange} value={formValues.warehouseName}>
                         {warehouseList.map((warehouse) => { return (<option key={warehouse.id}>{warehouse.name}</option>)})}
                     </select>
                 </div>
