@@ -28,6 +28,7 @@
     }
 
     &__input {
+        @include mixins.mobile-body-medium;
         @include mixins.mobile-form-field;
         color: variables.$color-primary-text;
         border: 1px solid variables.$color-borders;
@@ -49,8 +50,10 @@
     }
 
     &__input-textarea {
+        font-family: "Titillium Web", sans-serif;
+        @include mixins.mobile-body-medium;
         @include mixins.mobile-form-field;
-        padding: 1rem;
+        padding: .5rem 1rem;
         color: variables.$color-primary-text;
         border: 1px solid variables.$color-borders;
         margin-bottom: 1rem;
@@ -62,6 +65,7 @@
     }
 
     &__select {
+        @include mixins.mobile-body-medium;
         @include mixins.mobile-form-field;
         color: variables.$color-primary-text;
         border: 1px solid variables.$color-borders;

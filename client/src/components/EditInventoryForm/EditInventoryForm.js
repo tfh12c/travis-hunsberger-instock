@@ -1,5 +1,5 @@
 import './EditInventoryForm.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
 import axios from 'axios';
@@ -16,7 +16,24 @@ function EditInventoryForm({ item, categories, warehouses }) {
         container.name = warehouse.name
         return container;
     })
-    console.log(warehouseList, item);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        // [name] = dynamic value
+        setFormValues({ ...formValues, [name]: value, });
+    }
+
+    const handleRadioButton = (event) => {
+        setFormValues({ 
+            ...formValues,
+            status: event.target.value,
+            quantity: event.target.value === "Out of Stock" ? Number(0) : formValues.quantity
+         });
+    }
+
+    useEffect(() => {
+        console.log(formValues);
+    })
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -51,21 +68,15 @@ function EditInventoryForm({ item, categories, warehouses }) {
         // }
     }
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        // [name] = dynamic value
-        setFormValues({ ...formValues, [name]: value, });
-    }
-
-    //Need to make handleInputChange
-
     return (
         <>
             <form className='edit-inventory-form' onSubmit={handleSubmit}>
                 <div className='edit-inventory-form__item-details-container'>
                     <h2 className='edit-inventory-form__header'>Item Details</h2>    
                     {/* Item Name Label/Input */}
-                    <label className='edit-inventory-form__label' htmlFor='itemName'>Item Name</label>
+                    <label 
+                        className='edit-inventory-form__label' 
+                        htmlFor='itemName'>Item Name</label>
                     <input className='edit-inventory-form__input' type='text' name='itemName' id='itemName' onChange={handleChange} value={formValues.itemName}></input>
                     {!formValues.itemName && formError}
                     {/* Item Description Label/Input */}
@@ -84,18 +95,22 @@ function EditInventoryForm({ item, categories, warehouses }) {
                     <label className='edit-inventory-form__label' htmlFor='status'>Status</label>
                     <div className='edit-inventory-form__radio-button-container'>
                         <div className='edit-inventory-form__instock-option'> 
-                            <input className='edit-inventory-form__radio-button' type='radio' name='status' id='inStock' onChange={handleChange} value={formValues.status} checked={formValues.quantity}></input>
+                            <input className='edit-inventory-form__radio-button' type='radio' name='inStock' id='inStock' onChange={handleRadioButton} value="In Stock" checked={formValues.status === "In Stock"}></input>
                             <label className='edit-inventory-form__label' htmlFor='inStock'>In Stock</label>
                         </div>
                         <div className='edit-inventory-form__outofstock-option'>
-                            <input className='edit-inventory-form__radio-button' type='radio' name='status' id='outOfStock' onChange={handleChange} value={formValues.status} checked={!formValues.quantity}></input>
+                            <input className='edit-inventory-form__radio-button' type='radio' name='outOfStock' id='outOfStock' onChange={handleRadioButton} value="Out of Stock" checked={formValues.status === "Out of Stock"}></input>
                             <label className='edit-inventory-form__label' htmlFor='outOfStock'>Out of stock</label>
                         </div>  
                     </div>
                     {/* Quantity Label/Input */}
-                    <label className='edit-inventory-form__label' htmlFor='quantity'>Quantity</label>
-                    <input className='edit-inventory-form__input' type='number' name='quantity' id='quantity' onChange={handleChange} value={formValues.quantity}></input>
-                    {!formValues.quantity && formError}
+                    {(formValues.status === "In Stock") 
+                        ? <>
+                            <label className='edit-inventory-form__label' htmlFor='quantity'>Quantity</label>
+                            <input className='edit-inventory-form__input' type='number' name='quantity' id='quantity' onChange={handleChange} value={formValues.quantity} onFocus={(event) => event.target.value = ""}></input> 
+                            {!formValues.quantity && formError}
+                          </> 
+                        : null}
                     {/* Warehouse Label/Input */}
                     <label className='edit-inventory-form__label' htmlFor='warehouse'>Warehouse</label>
                     <select className='edit-inventory-form__select' name='warehouse' id='warehouse' onChange={handleChange} value={formValues.warehouseName}>
