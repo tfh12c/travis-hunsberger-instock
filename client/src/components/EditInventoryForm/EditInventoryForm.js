@@ -1,21 +1,14 @@
 import './EditInventoryForm.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
 import axios from 'axios';
 
-function EditInventoryForm({ item, categories, warehouses }) {
+function EditInventoryForm({ item, id, categories, warehouses }) {
     const [formValues, setFormValues] = useState(item);
     const [formError, setFormError] = useState(null);
+    const [priorQuantityValue, setPriorQuantityValue] = useState(null);
     const history = useHistory();
-
-    //Trim down warehouses prop to just warehouse name and ID
-    const warehouseList = warehouses.map(warehouse => {
-        const container = {};
-        container.id = warehouse.id;
-        container.name = warehouse.name
-        return container;
-    })
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,16 +17,23 @@ function EditInventoryForm({ item, categories, warehouses }) {
     }
 
     const handleRadioButton = (event) => {
+        setPriorQuantityValue(formValues.quantity);
         setFormValues({ 
             ...formValues,
             status: event.target.value,
-            quantity: event.target.value === "Out of Stock" ? Number(0) : formValues.quantity
+            quantity: event.target.value === "Out of Stock" ? Number(0) : Number(priorQuantityValue)
          });
     }
 
-    useEffect(() => {
-        console.log(formValues);
-    })
+    const handleWarehouseSelect = (event) => {
+        warehouses.forEach(warehouse => {
+            (event.target.value === warehouse.name) && setFormValues({
+                ...formValues,
+                warehouseID: warehouse.id,
+                warehouseName: warehouse.name
+            });
+        })
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -50,23 +50,15 @@ function EditInventoryForm({ item, categories, warehouses }) {
             }
         })
 
-        // try {
-        //     await axios.put(`http://localhost:4000/warehouse/edit/${id}`, {
-        //         id,
-        //         name: event.target.name.value,
-        //         address: event.target.address.value,
-        //         city: event.target.city.value,
-        //         country: event.target.country.value,
-        //         contactName: event.target.contactName.value,
-        //         position: event.target.position.value,
-        //         phone: event.target.phone.value,
-        //         email: event.target.email.value
-        //     })
-        //     history.push(`/warehouse/${id}`);
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        try {
+            await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues })
+            history.push(`/inventory/${id}`);
+        } catch (error) {
+            console.log(error);
+        }
     }
+
+    console.log(formValues);
 
     return (
         <>
@@ -74,9 +66,7 @@ function EditInventoryForm({ item, categories, warehouses }) {
                 <div className='edit-inventory-form__item-details-container'>
                     <h2 className='edit-inventory-form__header'>Item Details</h2>    
                     {/* Item Name Label/Input */}
-                    <label 
-                        className='edit-inventory-form__label' 
-                        htmlFor='itemName'>Item Name</label>
+                    <label className='edit-inventory-form__label' htmlFor='itemName'>Item Name</label>
                     <input className='edit-inventory-form__input' type='text' name='itemName' id='itemName' onChange={handleChange} value={formValues.itemName}></input>
                     {!formValues.itemName && formError}
                     {/* Item Description Label/Input */}
@@ -113,8 +103,8 @@ function EditInventoryForm({ item, categories, warehouses }) {
                         : null}
                     {/* Warehouse Label/Input */}
                     <label className='edit-inventory-form__label' htmlFor='warehouse'>Warehouse</label>
-                    <select className='edit-inventory-form__select' name='warehouse' id='warehouse' onChange={handleChange} value={formValues.warehouseName}>
-                        {warehouseList.map((warehouse) => { return (<option key={warehouse.id}>{warehouse.name}</option>)})}
+                    <select className='edit-inventory-form__select' name='warehouse' id='warehouse' onChange={handleWarehouseSelect} value={formValues.warehouseName}>
+                        {warehouses.map((warehouse) => { return (<option key={warehouse.id}>{warehouse.name}</option>)})}
                     </select>
                 </div>
                 <div className='edit-inventory-form__button-container'>

@@ -52,7 +52,7 @@ function EditInventoryPage() {
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
-                {item && categories && warehouses && <EditInventoryForm item={item} categories={categories} warehouses={warehouses} />}
+                {item && id && categories && warehouses && <EditInventoryForm item={item} id={id} categories={categories} warehouses={warehouses} />}
             </section>
         </main>
     )

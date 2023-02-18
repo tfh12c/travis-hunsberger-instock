@@ -56,7 +56,7 @@ function InventoryDetailsPage() {
                         <div className='inventory-details-page__status-content'>
                             <h4 className='inventory-details-page__item-header'>STATUS:</h4>
                             <p className='inventory-details-page__status'>
-                                <span className={data.quantity ? 'inventory-details-page__status-tag--instock' : 'inventory-details-age__status-tag--outofstock'}>{data.status}</span>
+                            <span className={data.quantity ? 'mobile-inventory-card__status-tag--instock' : 'mobile-inventory-card__status-tag--outofstock'}>{data.status}</span>
                             </p>
                         </div>
                         <div className='inventory-details-page__quantity-content'>

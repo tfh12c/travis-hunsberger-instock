@@ -40,17 +40,7 @@ function EditWarehouseForm({ warehouse, id }) {
         })
 
         try {
-            await axios.put(`http://localhost:4000/warehouse/edit/${id}`, {
-                id,
-                name: event.target.name.value,
-                address: event.target.address.value,
-                city: event.target.city.value,
-                country: event.target.country.value,
-                contactName: event.target.contactName.value,
-                position: event.target.position.value,
-                phone: event.target.phone.value,
-                email: event.target.email.value
-            })
+            await axios.put(`http://localhost:4000/warehouse/edit/${id}`, { ...formValues })
             history.push(`/warehouse/${id}`);
         } catch (error) {
             console.log(error);
