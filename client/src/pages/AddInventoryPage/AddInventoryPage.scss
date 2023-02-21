@@ -1,0 +1,33 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.add-inventory-page {
+    background-color: variables.$color-white;
+    margin: -3.5rem 1rem;
+    border-radius: .25rem;
+
+    &__content-container {
+        box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
+    }
+
+    &__header-content { 
+        display: flex;
+        border-bottom: 1px solid variables.$color-borders;
+        padding: 0 1rem 0 .75rem;
+    }
+
+    &__arrow-back-button {
+        border: none;
+        background-color: transparent;
+    }
+
+    &__arrow-back-icon {
+        margin-top: .25rem;
+        cursor: pointer;
+    }
+
+    &__header {
+        color: variables.$color-primary-text;
+        font-size: 1.625rem;
+    }
+}

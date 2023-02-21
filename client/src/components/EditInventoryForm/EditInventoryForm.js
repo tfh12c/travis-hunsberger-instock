@@ -50,12 +50,12 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
             }
         })
 
-        try {
-            await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues })
-            history.push(`/inventory/${id}`);
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues })
+        //     history.push(`/inventory/${id}`);
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
 
     console.log(formValues);
@@ -97,7 +97,7 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
                     {(formValues.status === "In Stock") 
                         ? <>
                             <label className='edit-inventory-form__label' htmlFor='quantity'>Quantity</label>
-                            <input className='edit-inventory-form__input' type='number' name='quantity' id='quantity' onChange={handleChange} value={formValues.quantity} onFocus={(event) => event.target.value = ""}></input> 
+                            <input className='edit-inventory-form__input' type='number' name='quantity' id='quantity' onChange={handleChange} value={formValues.quantity}></input> 
                             {!formValues.quantity && formError}
                           </> 
                         : null}
