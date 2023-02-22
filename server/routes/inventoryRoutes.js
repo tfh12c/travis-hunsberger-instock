@@ -45,7 +45,7 @@ router.post('/add', (req, res) => {
 
     //New object, populated by request sent
     const newItem = {
-        id: uniqid(),
+        id: req.body.id,
         warehouseID: req.body.warehouseID,
         warehouseName: req.body.warehouseName, 
         itemName: req.body.itemName,

@@ -56,15 +56,16 @@ function AddInventoryForm({ categories, warehouses }) {
                 );
             }
         })
-
-        // try {
-        //     await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues })
-        //     history.push(`/inventory/${id}`);
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        if (formValues.category && formValues.description && formValues.itemName && formValues.quantity && formValues.warehouseID && formValues.warehouseName) {
+            const id = formValues.id;
+            try {
+                await axios.post(`http://localhost:4000/inventory/add`, { ...formValues })
+                history.push(`/inventory/${id}`);
+            } catch (error) {
+                console.log(error);
+            }
+        }
     }
-
     console.log(formValues);
 
     return (
