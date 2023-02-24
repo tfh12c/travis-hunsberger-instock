@@ -40,6 +40,10 @@
         color: variables.$color-primary-cta;
         margin: 0;
         cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__address-header {

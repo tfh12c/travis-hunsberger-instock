@@ -33,7 +33,7 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
     //useMemo caches results of calculations between re-renders. useMemo can let use filter and avoid mutating data state
      const filtered = useMemo(() => {
         return warehouses.filter(warehouse => {
-            return search.length > 0 ? warehouse.name.includes(search) : true;
+            return search.length > 0 ? warehouse.name.toLowerCase().includes(search) : true;
         })
     }, [search, warehouses])
 
@@ -49,7 +49,7 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
                     <div className='mobile-warehouse-card__details-container'>  
                         <div className='mobile-warehouse-card__warehouse-details'>
                             <h4 className='mobile-warehouse-card__warehouse-header'>WAREHOUSE</h4>
-                            <Link to={`/warehouse/${warehouse.id}`} className='mobile-warehouse-card__warehouse-link'> 
+                            <Link to={`/warehouse/${warehouse.id}`} className='link'> 
                                 <button className='mobile-warehouse-card__name-icon-button'>   
                                     <p className='mobile-warehouse-card__warehouse-name'>{warehouse.name}</p>
                                     <img className='mobile-warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
@@ -68,9 +68,11 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
                             <h4 className='mobile-warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
                             <p className='mobile-warehouse-card__contact-number'>{warehouse.contact.phone}</p>
                             <p className='mobile-warehouse-card__contact-email'>{warehouse.contact.email}</p>
-                            <button className='mobile-warehouse-card__edit-button'>  
-                                <img className='mobile-warehouse-card__edit' src={edit} alt='edit icon'/>
-                            </button>
+                            <Link to={`/warehouse/edit/${warehouse.id}`} className='link'> 
+                                <button className='mobile-warehouse-card__edit-button'>  
+                                    <img className='mobile-warehouse-card__edit' src={edit} alt='edit icon'/>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </article>

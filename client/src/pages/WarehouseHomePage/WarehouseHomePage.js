@@ -1,5 +1,6 @@
 import './WarehouseHomePage.scss';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import MobileWarehouseCard from '../../components/MobileWarehouseCard/MobileWarehouseCard';
 
@@ -26,7 +27,7 @@ function WarehouseHomePage() {
     }
 
     const handleSearch = (event) => {
-        setSearch(event.target.value);
+        setSearch(event.target.value.toLowerCase());
     }
 
     //Runs when component mounts
@@ -40,7 +41,9 @@ function WarehouseHomePage() {
                 <div className='warehouse-home-page__header-content'>  
                     <h1 className='warehouse-home-page__header'>Warehouses</h1>
                     <input className='warehouse-home-page__search-input' type="search" id="search" placeholder='Search...' value={search} onChange={handleSearch}></input>
-                    <button className='warehouse-home-page__add-warehouse-button'>+ Add New Warehouse</button>
+                    <Link to={'/warehouse/add'} className='link'> 
+                        <button className='warehouse-home-page__add-warehouse-button'>+ Add New Warehouse</button>
+                    </Link>
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
