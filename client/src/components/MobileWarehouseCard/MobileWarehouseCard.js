@@ -1,5 +1,5 @@
 import './MobileWarehouseCard.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import trashcan from '../../assets/icons/delete_outline.svg';
@@ -7,7 +7,7 @@ import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 
-function MobileWarehouseCard({ warehouses, getWarehouses }) {
+function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
     const [warehouse, setWarehouse] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
 
@@ -30,6 +30,13 @@ function MobileWarehouseCard({ warehouses, getWarehouses }) {
         setDeleteModal(false);
     }
 
+    //useMemo caches results of calculations between re-renders. useMemo can let use filter and avoid mutating data state
+     const filtered = useMemo(() => {
+        return warehouses.filter(warehouse => {
+            return search.length > 0 ? warehouse.name.includes(search) : true;
+        })
+    }, [search, warehouses])
+
     //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
     useEffect(() => {
         document.body.style.overflow = deleteModal ? "hidden" : "unset"
@@ -37,7 +44,7 @@ function MobileWarehouseCard({ warehouses, getWarehouses }) {
 
     return (
         <>
-            {warehouses.map((warehouse) => (
+            {filtered.map((warehouse) => (
                 <article key={warehouse.id} className='mobile-warehouse-card'>
                     <div className='mobile-warehouse-card__details-container'>  
                         <div className='mobile-warehouse-card__warehouse-details'>
@@ -68,6 +75,9 @@ function MobileWarehouseCard({ warehouses, getWarehouses }) {
                     </div>
                 </article>
             ))}
+            {!filtered.length && <div className='mobile-warehouse-card__not-found-container'>
+                <h2 className='mobile-warehouse-card__not-found'>No Warehouse Found.</h2>
+            </div>}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
         </>
     )
