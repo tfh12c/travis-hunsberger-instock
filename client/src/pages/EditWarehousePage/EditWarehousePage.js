@@ -1,6 +1,6 @@
 import './EditWarehousePage.scss';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import EditWarehouseForm from '../../components/EditWarehouseForm/EditWarehouseForm';
@@ -35,9 +35,11 @@ function EditWarehousePage() {
         <main className='edit-warehouse-page'>
             <section className='edit-warehouse-page__content-container'>
                 <div className='edit-warehouse-page__header-content'>
-                    <button className='edit-warehouse-page__arrow-back-button'>
-                        <img className='edit-warehouse-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
-                    </button>
+                    <Link to={`/warehouse/${id}`} className='edit-warehouse-page__arrow-back-link'>
+                        <button className='edit-warehouse-page__arrow-back-button'>
+                            <img className='edit-warehouse-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
+                        </button>
+                    </Link>
                     <h1 className='edit-warehouse-page__header'>Edit Warehouse</h1>
                 </div>
                 {error && <p>{error}</p>}

@@ -14,6 +14,8 @@ function WarehouseDetailsPage() {
     const [error, setError] = useState(null);
     const { id } = useParams();
 
+    //Update GET functions to be "fetchData" so it can be used across components for delete modal (Match inventory home page);
+
     //GET warehouse by ID
     const getWarehouseById = async (id) => {
         setLoading(true);
@@ -67,7 +69,7 @@ function WarehouseDetailsPage() {
                         </Link>
                         <h1 className='warehouse-details-page__header'>{warehouseData.name}</h1>
                     </div>
-                    <Link to={`/warehouse/`}>
+                    <Link to={`/warehouse/edit/${id}`}>
                         <button className='warehouse-details-page__edit-button'>
                             <img className='warehouse-details-page__edit-icon' src={edit} alt='edit icon'></img>
                         </button>
@@ -89,7 +91,7 @@ function WarehouseDetailsPage() {
                         </div>
                     </div>
                 </div>
-                {inventoryData && <MobileWarehouseInventoryCard inventoryData={inventoryData}/>}
+                {inventoryData && <MobileWarehouseInventoryCard inventoryData={inventoryData} id={id} getWarehouseById={getWarehouseById} getInventoryOfWarehouse={getInventoryOfWarehouse} />}
             </section>}
         </main>
     )

@@ -16,6 +16,10 @@
         border-bottom: 1px solid variables.$color-borders;
     }
 
+    &__arrow-back-link {
+        display: flex;
+    }
+
     &__arrow-back-button {
         border: none;
         background-color: transparent;

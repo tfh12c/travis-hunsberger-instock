@@ -8,6 +8,8 @@ function InventoryHomePage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    //Update GET function to be "fetchData" with option for ID so it can be used across multiple components (Needed for WarehouseDetailsPage)
+
     //GET all inventory data
     const getInventory = async () => {
         setLoading(true);

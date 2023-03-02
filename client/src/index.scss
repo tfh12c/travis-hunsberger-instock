@@ -52,8 +52,8 @@ h4 {
   }
 }
 
-.link {
-  text-decoration: none;
+a:link {
+  text-decoration: none !important;
 }
 
 *:focus {
