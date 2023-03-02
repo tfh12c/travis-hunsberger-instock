@@ -1,5 +1,5 @@
 import './MobileWarehouseCard.scss';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import trashcan from '../../assets/icons/delete_outline.svg';
@@ -10,6 +10,7 @@ import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
 function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
     const [warehouse, setWarehouse] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
+    const [filteredWarehouses, setFilteredWarehouses] = useState(warehouses);
 
     const handleDelete = async (id) => {
         try {
@@ -30,12 +31,19 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
         setDeleteModal(false);
     }
 
-    //useMemo caches results of calculations between re-renders. useMemo can let use filter and avoid mutating data state
-     const filtered = useMemo(() => {
-        return warehouses.filter(warehouse => {
-            return search.length > 0 ? warehouse.name.toLowerCase().includes(search) : true;
-        })
+    //Filter warehouses with search, otherwise use all warehouses data
+    useEffect(() => {
+        const filteredData = search ? warehouses.filter(warehouse => warehouse.name.toLowerCase().includes(search)) : warehouses;
+        setFilteredWarehouses(filteredData);
     }, [search, warehouses])
+
+    //This works, just not sure if useMemo is appropriate, since filtering isnt really a calculation. 
+    //useMemo caches results of calculations between re-renders. useMemo can let use filter and avoid mutating data state
+    //  const filtered = useMemo(() => {
+    //     return warehouses.filter(warehouse => {
+    //         return search.length > 0 ? warehouse.name.toLowerCase().includes(search) : true;
+    //     })
+    // }, [search, warehouses])
 
     //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
     useEffect(() => {
@@ -44,7 +52,7 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
 
     return (
         <>
-            {filtered.map((warehouse) => (
+            {filteredWarehouses.map((warehouse) => (
                 <article key={warehouse.id} className='mobile-warehouse-card'>
                     <div className='mobile-warehouse-card__details-container'>  
                         <div className='mobile-warehouse-card__warehouse-details'>
@@ -77,9 +85,9 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
                     </div>
                 </article>
             ))}
-            {!filtered.length && <div className='mobile-warehouse-card__not-found-container'>
+            {/* {!filtered.length && <div className='mobile-warehouse-card__not-found-container'>
                 <h2 className='mobile-warehouse-card__not-found'>No Warehouse Found.</h2>
-            </div>}
+            </div>} */}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
         </>
     )
