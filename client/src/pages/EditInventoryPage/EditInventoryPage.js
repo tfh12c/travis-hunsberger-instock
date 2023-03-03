@@ -1,6 +1,6 @@
 import './EditInventoryPage.scss';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import EditInventoryForm from '../../components/EditInventoryForm/EditInventoryForm';
@@ -45,9 +45,11 @@ function EditInventoryPage() {
         <main className='edit-inventory-page'>
             <section className='edit-inventory-page__content-container'>
                 <div className='edit-inventory-page__header-content'>
-                    <button className='edit-inventory-page__arrow-back-button'>
-                        <img className='edit-inventory-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
-                    </button>
+                    <Link to={`/inventory/${id}`} className='edit-inventory-page__arrow-back-link'>
+                        <button className='edit-inventory-page__arrow-back-button'>
+                            <img className='edit-inventory-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
+                        </button>
+                    </Link>
                     <h1 className='edit-inventory-page__header'>Edit Inventory Item</h1>
                 </div>
                 {error && <p>{error}</p>}

@@ -16,6 +16,10 @@
         padding: 0 1rem 0 .75rem;
     }
 
+    &__arrow-back-link {
+        display: flex;
+    }
+
     &__arrow-back-button {
         border: none;
         background-color: transparent;

@@ -1,6 +1,6 @@
 import './InventoryDetailsPage.scss';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import edit from '../../assets/icons/edit.svg';
@@ -38,14 +38,18 @@ function InventoryDetailsPage() {
             {data && <section className='inventory-details-page__content-container'>
                 <div className='inventory-details-page__header-content'>
                     <div className='inventory-details-page__header-container'>
-                        <button className='inventory-details-page__arrow-back-button'>
-                            <img className='inventory-details-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
-                        </button>
+                        <Link to={'/inventory'}>  
+                            <button className='inventory-details-page__arrow-back-button'>
+                                <img className='inventory-details-page__arrow-back-icon' src={arrowBack} alt='arrow back icon'></img>
+                            </button>
+                        </Link>
                         <h1 className='inventory-details-page__header'>{data.itemName}</h1>
                     </div>
-                    <button className='inventory-details-page__edit-button'>
-                        <img className='inventory-details-page__edit-icon' src={edit} alt='edit icon'></img>
-                    </button>
+                    <Link to={`/inventory/edit/${data.id}`}>
+                        <button className='inventory-details-page__edit-button'>
+                            <img className='inventory-details-page__edit-icon' src={edit} alt='edit icon'></img>
+                        </button>
+                    </Link>
                 </div>
                 <div className='inventory-details-page__item-details'>
                     <h4 className='inventory-details-page__item-header'>ITEM DESCRIPTION:</h4>

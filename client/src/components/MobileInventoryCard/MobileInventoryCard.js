@@ -48,12 +48,12 @@ function MobileInventoryCard({ inventory, getInventory, search }) {
                 <div className='mobile-inventory-card__details-container'>  
                         <div className='mobile-inventory-card__item-details'>
                             <h4 className='mobile-inventory-card__inventory-header'>INVENTORY ITEM</h4>
-                            {/* <Link to={`/warehouse/${warehouse.id}`} className='mobile-inventory-card__warehouse-link'>  */}
+                            <Link to={`/inventory/${item.id}`}> 
                                 <button className='mobile-inventory-card__name-icon-button'>   
                                     <p className='mobile-inventory-card__inventory-name'>{item.itemName}</p>
                                     <img className='mobile-inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
                                 </button>
-                            {/* </Link> */}
+                            </Link>
                             <h4 className='mobile-inventory-card__category-header'>CATEGORY</h4>
                             <p className='mobile-inventory-card__category'>{item.category}</p>
                             <button onClick={() => openDeleteModal(item)} className='mobile-inventory-card__trashcan-button'>  
