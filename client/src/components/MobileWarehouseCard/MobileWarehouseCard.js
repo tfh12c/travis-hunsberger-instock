@@ -31,6 +31,11 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
         setDeleteModal(false);
     }
 
+    //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
+    useEffect(() => {
+        document.body.style.overflow = deleteModal ? "hidden" : "unset"
+    }, [deleteModal])
+
     //Filter warehouses with search, otherwise use all warehouses data
     useEffect(() => {
         const filteredData = search ? warehouses.filter(warehouse => warehouse.name.toLowerCase().includes(search)) : warehouses;
@@ -44,11 +49,6 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
     //         return search.length > 0 ? warehouse.name.toLowerCase().includes(search) : true;
     //     })
     // }, [search, warehouses])
-
-    //When deleteModal is opened, .body overflow will be hidden to prevent background scrolling
-    useEffect(() => {
-        document.body.style.overflow = deleteModal ? "hidden" : "unset"
-    }, [deleteModal])
 
     return (
         <>

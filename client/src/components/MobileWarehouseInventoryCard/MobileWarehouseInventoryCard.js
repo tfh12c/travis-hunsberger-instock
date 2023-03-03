@@ -5,9 +5,9 @@ import axios from 'axios';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
-import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
+import DeleteWarehouseInventoryModal from '../DeleteWarehouseInventoryModal/DeleteWarehouseInventoryModal';
 
-function MobileWarehouseInventoryCard({ inventoryData, id, getWarehouseById, getInventoryOfWarehouse }) { 
+function MobileWarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, warehouseId }) { 
     const [item, setItem] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
 
@@ -15,8 +15,7 @@ function MobileWarehouseInventoryCard({ inventoryData, id, getWarehouseById, get
       try {
           await axios.delete(`http://localhost:4000/inventory/delete/${id}`);
           setDeleteModal(false);
-          getWarehouseById(id);
-          getInventoryOfWarehouse(id);
+          getInventoryOfWarehouse(warehouseId)
       } catch (error) {
           console.log(error);
       }
@@ -62,14 +61,16 @@ function MobileWarehouseInventoryCard({ inventoryData, id, getWarehouseById, get
                             </p>
                             <h4 className='mobile-warehouse-inventory-card__quantity-header'>QTY</h4>
                             <p className='mobile-warehouse-inventory-card__quantity'>{inventory.quantity}</p>
-                            <button className='mobile-warehouse-inventory-card__edit-button'>  
-                                <img className='mobile-warehouse-inventory-card__edit' src={edit} alt='edit icon'/>
-                            </button>
+                            <Link to={`/inventory/edit/${inventory.id}`}>     
+                                <button className='mobile-warehouse-inventory-card__edit-button'>  
+                                    <img className='mobile-warehouse-inventory-card__edit' src={edit} alt='edit icon'/>
+                                </button>
+                            </Link>
                         </div>
                     </div>
             </article>
            ))} 
-            {deleteModal && <DeleteInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
+            {deleteModal && <DeleteWarehouseInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
         </>
     )
 }

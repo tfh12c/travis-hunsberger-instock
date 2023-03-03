@@ -7,9 +7,10 @@ import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
 
-function MobileInventoryCard({ inventory, getInventory }) {
+function MobileInventoryCard({ inventory, getInventory, search }) {
     const [item, setItem] = useState(null);
     const [deleteModal, setDeleteModal] = useState(false);
+    const [filteredInventory, setFilteredInventory] = useState(inventory);
 
       const handleDelete = async (id) => {
         try {
@@ -35,9 +36,14 @@ function MobileInventoryCard({ inventory, getInventory }) {
         document.body.style.overflow = deleteModal ? "hidden" : "unset"
     }, [deleteModal])
 
+    useEffect(() => {
+        const filteredData = search ? inventory.filter(item => item.itemName.toLowerCase().includes(search)) : inventory;
+        setFilteredInventory(filteredData);
+    }, [search, inventory])
+
     return (
         <>
-           {inventory.map((item) => (
+           {filteredInventory.map((item) => (
             <article key={item.id} className='mobile-inventory-card'>
                 <div className='mobile-inventory-card__details-container'>  
                         <div className='mobile-inventory-card__item-details'>

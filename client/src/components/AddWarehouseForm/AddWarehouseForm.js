@@ -58,6 +58,10 @@ function AddWarehouseForm() {
         setFormValues({ ...formValues, [name]: value, });
     }
 
+    const handleCancel = (event) => {
+        history.push('/warehouse');
+    }
+
     return (
         <>
             <form className='add-warehouse-form' onSubmit={handleSubmit}>
@@ -100,7 +104,7 @@ function AddWarehouseForm() {
                     {!formValues.email && formError}
                 </div>
                 <div className='add-warehouse-form__button-container'>
-                    <button className='add-warehouse-form__cancel-button'>Cancel</button>
+                    <button className='add-warehouse-form__cancel-button' onClick={handleCancel}>Cancel</button>
                     <button className='add-warehouse-form__save-button' type='submit'>+ Add Warehouse</button>
                 </div>
             </form>
