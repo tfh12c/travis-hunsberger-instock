@@ -124,4 +124,16 @@
     &__edit {
         cursor: pointer;
     }
+
+    &__not-found-container {
+        padding: .5rem;
+    }
+
+    &__not-found {
+        text-align: center;
+        margin: 0;
+        background-color: rgba(201, 69, 21, 0.07);
+        color: rgb(201, 69, 21, 1);
+        border-radius: 1.25rem
+    }
 }

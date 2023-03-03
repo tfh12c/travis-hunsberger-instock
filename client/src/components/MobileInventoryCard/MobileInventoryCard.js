@@ -1,7 +1,7 @@
 import './MobileInventoryCard.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
@@ -69,13 +69,18 @@ function MobileInventoryCard({ inventory, getInventory, search }) {
                             <p className='mobile-inventory-card__quantity'>{item.quantity}</p>
                             <h4 className='mobile-inventory-card__warehouse-header'>WAREHOUSE</h4>
                             <p className='mobile-inventory-card__warehouse'>{item.warehouseName}</p>
-                            <button className='mobile-inventory-card__edit-button'>  
-                                <img className='mobile-inventory-card__edit' src={edit} alt='edit icon'/>
-                            </button>
+                            <Link to={`/inventory/edit/${item.id}`}> 
+                                <button className='mobile-inventory-card__edit-button'>  
+                                    <img className='mobile-inventory-card__edit' src={edit} alt='edit icon'/>
+                                </button>
+                            </Link>
                         </div>
                     </div>
             </article>
            ))}
+           {!filteredInventory.length && <div className='mobile-inventory-card__not-found-container'>
+                <h2 className='mobile-inventory-card__not-found'>No Item Found.</h2>
+            </div>}
            {deleteModal && <DeleteInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
         </>
     )

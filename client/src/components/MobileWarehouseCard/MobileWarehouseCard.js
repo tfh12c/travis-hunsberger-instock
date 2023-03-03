@@ -85,9 +85,9 @@ function MobileWarehouseCard({ warehouses, getWarehouses, search }) {
                     </div>
                 </article>
             ))}
-            {/* {!filtered.length && <div className='mobile-warehouse-card__not-found-container'>
+            {!filteredWarehouses.length && <div className='mobile-warehouse-card__not-found-container'>
                 <h2 className='mobile-warehouse-card__not-found'>No Warehouse Found.</h2>
-            </div>} */}
+            </div>}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
         </>
     )
