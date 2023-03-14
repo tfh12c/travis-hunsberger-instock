@@ -56,9 +56,9 @@ function MobileInventoryCard({ inventory, getInventory, search }) {
                             </Link>
                             <h4 className='mobile-inventory-card__category-header'>CATEGORY</h4>
                             <p className='mobile-inventory-card__category'>{item.category}</p>
-                            <button onClick={() => openDeleteModal(item)} className='mobile-inventory-card__trashcan-button'>  
+                            {/* <button onClick={() => openDeleteModal(item)} className='mobile-inventory-card__trashcan-button'>  
                                 <img className='mobile-inventory-card__trashcan' src={trashcan} alt='trashcan icon'/>
-                            </button>
+                            </button> */}
                         </div>
                         <div className='mobile-inventory-card__status-details'>
                             <h4 className='mobile-inventory-card__status-header'>STATUS</h4>
@@ -69,6 +69,20 @@ function MobileInventoryCard({ inventory, getInventory, search }) {
                             <p className='mobile-inventory-card__quantity'>{item.quantity}</p>
                             <h4 className='mobile-inventory-card__warehouse-header'>WAREHOUSE</h4>
                             <p className='mobile-inventory-card__warehouse'>{item.warehouseName}</p>
+                            {/* <Link to={`/inventory/edit/${item.id}`}> 
+                                <button className='mobile-inventory-card__edit-button'>  
+                                    <img className='mobile-inventory-card__edit' src={edit} alt='edit icon'/>
+                                </button>
+                            </Link> */}
+                        </div>
+                    </div>
+                    <div className='mobile-inventory-card__delete-edit-container'>
+                        <div className='mobile-inventory-card__trashcan-container'>
+                            <button onClick={() => openDeleteModal(item)} className='mobile-inventory-card__trashcan-button'>  
+                                <img className='mobile-inventory-card__trashcan' src={trashcan} alt='trashcan icon'/>
+                            </button>
+                        </div>
+                        <div className='mobile-inventory-card__edit-container'>
                             <Link to={`/inventory/edit/${item.id}`}> 
                                 <button className='mobile-inventory-card__edit-button'>  
                                     <img className='mobile-inventory-card__edit' src={edit} alt='edit icon'/>
