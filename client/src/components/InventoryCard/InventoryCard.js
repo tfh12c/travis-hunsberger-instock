@@ -50,7 +50,7 @@ function InventoryCard({ inventory, getInventory, search }) {
                         <h4 className='inventory-card__inventory-header'>INVENTORY ITEM</h4>
                         <Link to={`/inventory/${item.id}`}> 
                             <button className='inventory-card__name-icon-button'>   
-                                <p className='inventory-card__inventory-name'>{item.itemName}</p>
+                                <h3 className='inventory-card__inventory-name'>{item.itemName}</h3>
                                 <img className='inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
                             </button>
                         </Link>

@@ -51,7 +51,7 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
     // }, [search, warehouses])
 
     return (
-        <>
+        <section>
             {filteredWarehouses.map((warehouse) => (
                 <article key={warehouse.id} className='warehouse-card'>
                     <div className='warehouse-card__details-container'>  
@@ -59,7 +59,7 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                             <h4 className='warehouse-card__warehouse-header'>WAREHOUSE</h4>
                             <Link to={`/warehouse/${warehouse.id}`} className='link'> 
                                 <button className='warehouse-card__name-icon-button'>   
-                                    <p className='warehouse-card__warehouse-name'>{warehouse.name}</p>
+                                    <h3 className='warehouse-card__warehouse-name'>{warehouse.name}</h3>
                                     <img className='warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
                                 </button>
                             </Link>
@@ -95,7 +95,7 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                 <h2 className='warehouse-card__not-found'>No Warehouse Found.</h2>
             </div>}
             {deleteModal && <DeleteWarehouseModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} warehouse={warehouse}/>}
-        </>
+        </section>
     )
 }
 

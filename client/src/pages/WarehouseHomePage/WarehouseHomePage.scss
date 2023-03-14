@@ -13,11 +13,26 @@
 
     &__header-content {
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
     }
 
     &__header {
         margin: 0;
         padding: 1.5rem 0 1rem 0;
+    }
+
+    &__search-add-container {
+        @include mixins.tablet {
+            width: 100%;
+            display: flex;
+            padding-top: .875rem;
+            justify-content: flex-end;
+        }
     }
 
     &__search-input {
@@ -29,12 +44,24 @@
         background-position: 96% 50%;
         margin-bottom: 1rem;
 
+        @include mixins.tablet {
+            margin-bottom: 0;
+            width: 33%;
+        }
+
         &:focus {
             border: 1px solid variables.$color-primary-cta;
         }
         
         &::placeholder {
             color: variables.$color-headers-placeholders;
+        }
+    }
+
+    &__add-new-warehouse-link {
+        @include mixins.tablet {
+            width: 33%;
+            margin-left: 1rem;
         }
     }
 
@@ -48,8 +75,47 @@
         cursor: pointer;
         margin-bottom: 1.5rem;
 
+        @include mixins.tablet {
+            margin-bottom: 0;
+        }
+
         &:hover {
             background-color: variables.$color-background-dark;
         }
+    }
+
+    &__sort-buttons-container {
+        display: none;
+        background-color: variables.$color-background-light;
+
+        @include mixins.tablet {
+            display: flex;
+            padding: 0 2rem;
+        }
+    }
+
+    &__warehouse-sort, &__address-sort, &__contact-name-sort, &__contact-info-sort, &__actions {
+        display: flex;
+        padding: 0;
+        align-items: center; 
+        border: none;
+        background-color: transparent;
+        color: variables.$color-headers-placeholders;
+    }
+
+    &__warehouse-sort {
+        width: 9.4375rem;
+    }
+
+    &__address-sort {
+        width: 8.1875rem;
+    }
+
+    &__contact-name-sort {
+        width: 8.8125rem;
+    }
+
+    &__contact-info-sort {
+        width: 13.5625rem;
     }
 }

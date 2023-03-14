@@ -1,6 +1,12 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 
+@include mixins.tablet {
+    article:first-child {
+        border-top: none !important;
+    }
+}
+
 .warehouse-card {
     display: flex;
     flex-direction: column;

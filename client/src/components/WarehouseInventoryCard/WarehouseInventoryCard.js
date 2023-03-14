@@ -44,7 +44,7 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
                         <h4 className='warehouse-inventory-card__inventory-header'>INVENTORY ITEM</h4>
                             <Link to={`/inventory/${inventory.id}`}>  
                                 <button className='warehouse-inventory-card__name-icon-button'>   
-                                    <p className='warehouse-inventory-card__inventory-name'>{inventory.itemName}</p>
+                                    <h3 className='warehouse-inventory-card__inventory-name'>{inventory.itemName}</h3>
                                     <img className='warehouse-inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
                                 </button>
                             </Link>
