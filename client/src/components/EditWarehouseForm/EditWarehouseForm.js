@@ -49,8 +49,6 @@ function EditWarehouseForm({ warehouse, id }) {
         }
     }
 
-    console.log(formValues);
-
     const handleCancel = () => {
         history.push(`/warehouse/${id}`);
     }

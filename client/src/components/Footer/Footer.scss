@@ -1,0 +1,13 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.footer-container {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-text {
+    @include mixins.copyright-text;
+    color: variables.$color-headers-placeholders;
+}

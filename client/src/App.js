@@ -10,7 +10,7 @@ import InventoryHomePage from './pages/InventoryHomePage/InventoryHomePage';
 import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
 import WarehouseHomePage from './pages/WarehouseHomePage/WarehouseHomePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-// import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/inventory/:id" component={InventoryDetailsPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }
