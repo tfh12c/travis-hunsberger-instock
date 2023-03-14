@@ -1,7 +1,7 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 
-.mobile-warehouse-inventory-card {
+.warehouse-inventory-card {
     display: flex;
     flex-direction: column;
     border-top: 1px solid variables.$color-borders;
@@ -88,6 +88,18 @@
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+    }
+
+    &__delete-edit-container {
+        display: flex;
+    }
+
+    &__trashcan-container {
+        flex: 1;
+    }
+
+    &__edit-container {
+        flex: 1;
     }
 
     &__trashcan-button {
