@@ -2,7 +2,7 @@ import './WarehouseHomePage.scss';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import MobileWarehouseCard from '../../components/MobileWarehouseCard/MobileWarehouseCard';
+import WarehouseCard from '../../components/WarehouseCard/WarehouseCard';
 
 
 function WarehouseHomePage() {
@@ -47,7 +47,7 @@ function WarehouseHomePage() {
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
-                {data && <MobileWarehouseCard warehouses={data} getWarehouses={getWarehouses} search={search} />}
+                {data && <WarehouseCard warehouses={data} getWarehouses={getWarehouses} search={search} />}
             </section>
         </main>
     )

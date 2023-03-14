@@ -1,7 +1,7 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 
-.mobile-inventory-card {
+.warehouse-card {
     display: flex;
     flex-direction: column;
     border-top: 1px solid variables.$color-borders;
@@ -12,14 +12,18 @@
         justify-content: space-around;
     }
 
-    &__item-details {
+    &__warehouse-details {
         flex: 1;
     }
 
-    &__inventory-header {
+    &__warehouse-header {
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+    }
+
+    &__warehouse-link {
+        text-decoration: none;
     }
 
     &__name-icon-button {
@@ -31,73 +35,66 @@
         background-color: transparent;
     }
 
-    &__inventory-name {
+    &__warehouse-name {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-cta;
         margin: 0;
         cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
-    &__category-header {
+    &__address-header {
         margin: 1rem 0 0;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
     }
 
-    &__category {
+    &__address-street {
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
     }
 
-    &__status-details {
+    &__address-city-country {
+        margin: .25rem 0 0;
+        @include mixins.mobile-body-medium;
+        color: variables.$color-primary-text;
+    }
+
+    &__contact-details {
         flex: 1;
     }
 
-    &__status-header {
+    &__contact-header {
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
     }
 
-    &__status {
+    &__contact-name {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
         margin: 0;
         padding-top: 2px;
-        text-transform: uppercase;
-        font-weight: 600;
     }
 
-    &__status-tag {
-        &--instock {
-            @include mixins.mobile-tag-instock;
-        }
-        &--outofstock {
-            @include mixins.mobile-tag-outofstock;
-        }
-    }
-
-    &__quantity-header {
+    &__contact-info-header {
         margin: 1.125rem 0 0;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
     }
 
-    &__quantity {
+    &__contact-number {
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
     }
 
-    &__warehouse-header {
-        margin: 1.125rem 0 0;
-        @include mixins.mobile-table-header;
-        color: variables.$color-headers-placeholders;
-    }
-
-    &__warehouse {
-        margin: .5rem 0 0;
+    &__contact-email {
+        margin: .25rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
     }
@@ -114,6 +111,7 @@
         flex: 1;
     }
 
+
     &__trashcan-button {
         border: none;
         background: transparent;
@@ -123,7 +121,6 @@
 
     &__trashcan {
         cursor: pointer;
-        // margin-top: 3.75rem;
     }
 
     &__edit-button {

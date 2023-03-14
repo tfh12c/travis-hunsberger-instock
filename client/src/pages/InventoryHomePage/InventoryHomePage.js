@@ -2,7 +2,7 @@ import './InventoryHomePage.scss';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import MobileInventoryCard from '../../components/MobileInventoryCard/MobileInventoryCard';
+import InventoryCard from '../../components/InventoryCard/InventoryCard';
 
 function InventoryHomePage() {
     const [data, setData] = useState(null);
@@ -46,7 +46,7 @@ function InventoryHomePage() {
                 </div>
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
-                {data && <MobileInventoryCard inventory={data} getInventory={getInventory} search={search} />}
+                {data && <InventoryCard inventory={data} getInventory={getInventory} search={search} />}
             </section>
         </main>
     )
