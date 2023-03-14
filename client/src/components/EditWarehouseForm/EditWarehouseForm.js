@@ -31,7 +31,7 @@ function EditWarehouseForm({ warehouse, id }) {
         Object.entries(formValues).forEach(([name, value]) => {
             if (!value) {
                 setFormError(
-                    <div className='edit-warehouse-form__input--error edit-warehouse-form__input--no-error'>
+                    <div className='edit-warehouse-form__input--error'>
                         <img className='edit-warehouse-form__error-icon' src={error} alt='error icon'></img>
                         <p className='edit-warehouse-form__error-text'>This field is required</p>
                     </div>
@@ -39,12 +39,20 @@ function EditWarehouseForm({ warehouse, id }) {
             }
         })
 
-        try {
-            await axios.put(`http://localhost:4000/warehouse/edit/${id}`, { ...formValues })
-            history.push(`/warehouse/${id}`);
-        } catch (error) {
-            console.log(error);
+        if (formValues.address && formValues.city && formValues.contactName && formValues.country && formValues.email && formValues.name && formValues.phone && formValues.position) {
+            try {
+                await axios.put(`http://localhost:4000/warehouse/edit/${id}`, { ...formValues })
+                history.push(`/warehouse/${id}`);
+            } catch (error) {
+                console.log(error);
+            }
         }
+    }
+
+    console.log(formValues);
+
+    const handleCancel = () => {
+        history.push(`/warehouse/${id}`);
     }
      
     return (
@@ -89,7 +97,7 @@ function EditWarehouseForm({ warehouse, id }) {
                     {!formValues.email && formError}
                 </div>
                 <div className='edit-warehouse-form__button-container'>
-                    <button className='edit-warehouse-form__cancel-button'>Cancel</button>
+                    <button className='edit-warehouse-form__cancel-button' type='button' onClick={handleCancel}>Cancel</button>
                     <button className='edit-warehouse-form__save-button' type='submit'>Save</button>
                 </div>
             </form>

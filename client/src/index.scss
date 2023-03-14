@@ -64,3 +64,7 @@ a:link {
   color: variables.$color-headers-placeholders;
   @include mixins.mobile-body-medium;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}

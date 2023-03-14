@@ -37,14 +37,21 @@
             border: 1px solid variables.$color-primary-cta;
         }
 
-        &--no-error {
-            display: none;
-        }
-
         &--error {
             display: flex;
             align-items: center;
             margin: -0.5rem 0 1rem;
+        }
+    }
+
+    &__input-warning {
+        @include mixins.mobile-form-field;
+        color: variables.$color-primary-text;
+        border: 1px solid variables.$color-error;
+        margin-bottom: 1rem;
+
+        &:focus {
+            border: 1px solid variables.$color-primary-cta;
         }
     }
 

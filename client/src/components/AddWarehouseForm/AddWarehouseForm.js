@@ -7,6 +7,7 @@ import error from '../../assets/icons/error.svg';
 
 function AddWarehouseForm() {
     const [formValues, setFormValues] = useState({
+        id: uniqid(),
         name: '',
         address: '',
         city: '',
@@ -26,7 +27,7 @@ function AddWarehouseForm() {
         Object.entries(formValues).forEach(([name, value]) => {
             if (!value) {
                 setFormError(
-                    <div className='add-warehouse-form__input--error add-warehouse-form__input--no-error'>
+                    <div className='add-warehouse-form__input--error'>
                         <img className='add-warehouse-form__error-icon' src={error} alt='error icon'></img>
                         <p className='add-warehouse-form__error-text'>This field is required</p>
                     </div>
@@ -34,21 +35,13 @@ function AddWarehouseForm() {
             }
         })
 
-        try {
-            await axios.post(`http://localhost:4000/warehouse/add`, {
-                id: uniqid(),
-                name: event.target.name.value,
-                address: event.target.address.value,
-                city: event.target.city.value,
-                country: event.target.country.value,
-                contactName: event.target.contactName.value,
-                position: event.target.position.value,
-                phone: event.target.phone.value,
-                email: event.target.email.value
-            })
-            history.push(`/warehouse`);
-        } catch (error) {
-            console.log(error);
+        if (formValues.name && formValues.address && formValues.city && formValues.country && formValues.contactName && formValues.position && formValues.phone && formValues.email) {
+            try {
+                await axios.post(`http://localhost:4000/warehouse/add`, { ...formValues })
+                history.push(`/warehouse`);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -58,7 +51,7 @@ function AddWarehouseForm() {
         setFormValues({ ...formValues, [name]: value, });
     }
 
-    const handleCancel = (event) => {
+    const handleCancel = () => {
         history.push('/warehouse');
     }
 
@@ -104,7 +97,7 @@ function AddWarehouseForm() {
                     {!formValues.email && formError}
                 </div>
                 <div className='add-warehouse-form__button-container'>
-                    <button className='add-warehouse-form__cancel-button' onClick={handleCancel}>Cancel</button>
+                    <button className='add-warehouse-form__cancel-button' type='button' onClick={handleCancel}>Cancel</button>
                     <button className='add-warehouse-form__save-button' type='submit'>+ Add Warehouse</button>
                 </div>
             </form>

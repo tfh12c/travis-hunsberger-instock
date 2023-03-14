@@ -37,12 +37,13 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const itemQuantity = formValues.quantity; //used to update quantity to type number in put request
 
         // Loops over formValues obj for validation
         Object.entries(formValues).forEach(([name, value]) => {
             if (!value) {
                 setFormError(
-                    <div className='edit-inventory-form__input--error edit-inventory-form__input--no-error'>
+                    <div className='edit-inventory-form__input--error'>
                         <img className='edit-inventory-form__error-icon' src={error} alt='error icon'></img>
                         <p className='edit-inventory-form__error-text'>This field is required</p>
                     </div>
@@ -50,15 +51,19 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
             }
         })
 
-        // try {
-        //     await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues })
-        //     history.push(`/inventory/${id}`);
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        if (formValues.itemName && formValues.description) {
+            try {
+            await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues, quantity: parseInt(itemQuantity, 10) })
+            history.push(`/inventory/${id}`);
+        } catch (error) {
+            console.log(error);
+        }
+        }
     }
 
-    console.log(formValues);
+    const handleCancel = () => {
+        history.push(`/inventory/${id}`);
+    }
 
     return (
         <>
@@ -108,7 +113,7 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
                     </select>
                 </div>
                 <div className='edit-inventory-form__button-container'>
-                    <button className='edit-inventory-form__cancel-button'>Cancel</button>
+                    <button className='edit-inventory-form__cancel-button' type='button' onClick={handleCancel}>Cancel</button>
                     <button className='edit-inventory-form__save-button' type='submit'>Save</button>
                 </div>
             </form>
