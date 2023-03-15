@@ -19,6 +19,10 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            padding: 0 2rem;
+        }
     }
 
     &__header-container {
@@ -88,6 +92,7 @@
         @include mixins.tablet {
             display: flex;
             border-top: 2px solid variables.$color-borders;
+            padding: 0 2rem;
         }
     }
 
@@ -105,21 +110,37 @@
     &__warehouse-address-header {
         color: variables.$color-headers-placeholders;
         margin: 1rem 0 .5rem 1rem;
+
+        @include mixins.tablet {
+            margin-left: 0;
+        }
     }
 
     &__warehouse-address {
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
         margin: 0 0 1rem 1rem; 
+
+        @include mixins.tablet {
+            margin-left: 0;
+        }
     }
 
     &__contact-section-container {
         display: flex;
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            width: 60%;
+        }
     }
 
     &__contact-name-container {
         flex: 1;
+
+        @include mixins.tablet {
+            margin-left: 1rem;
+        }
     }
 
     &__contact-name-header {
