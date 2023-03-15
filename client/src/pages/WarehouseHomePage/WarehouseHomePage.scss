@@ -105,6 +105,10 @@
         width: 20%;
     }
 
+    &__sort-icon--active {
+        filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1782%) hue-rotate(214deg) brightness(93%) contrast(93%);
+    }
+
     &__actions {
         padding: 0;
         border: none;

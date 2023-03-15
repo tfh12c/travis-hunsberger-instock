@@ -11,6 +11,7 @@ function WarehouseHomePage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
+    const [sortActive, setSortActive] = useState('');
 
     //GET all warehouse data from backend api
     const getWarehouses = async () => {
@@ -27,14 +28,40 @@ function WarehouseHomePage() {
         }
     }
 
+    console.log(sortActive);
+
+     //Runs when component mounts
+     useEffect(() => {
+        getWarehouses();
+    }, [])
+
     const handleSearch = (event) => {
         setSearch(event.target.value.toLowerCase());
     }
 
-    //Runs when component mounts
-    useEffect(() => {
-        getWarehouses();
-    }, [])
+    const sortWarehouse = () => {
+        const sortedData = [].concat(data).sort((a, b) => a.name > b.name ? 1 : -1);
+        setData(sortedData);
+        setSortActive('warehouse')
+    }
+
+    const sortAddress = () => {
+        const sortedData = [].concat(data).sort((a, b) => a.address > b.address ? 1 : -1);
+        setData(sortedData);
+        setSortActive('address');
+    }
+
+    const sortContactName = () => {
+        const sortedData = [].concat(data).sort((a, b) => a.contact.name > b.contact.name ? 1 : -1);
+        setData(sortedData);
+        setSortActive('contactName');
+    }
+
+    const sortContactInfo = () => {
+        const sortedData = [].concat(data).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
+        setData(sortedData);
+        setSortActive('contactInfo');
+    }
     
     return (
         <main className='warehouse-home-page'>
@@ -49,21 +76,21 @@ function WarehouseHomePage() {
                     </div>
                 </div>
                 <div className='warehouse-home-page__sort-buttons-container'>
-                    <button className='warehouse-home-page__sort'>
+                    <button className='warehouse-home-page__sort' onClick={sortWarehouse}>
                         <h4 className='warehouse-home-page__warehouse-sort-header'>WAREHOUSE</h4>
-                        <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
+                        <img className={sortActive === 'warehouse' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__sort'>
+                    <button className='warehouse-home-page__sort' onClick={sortAddress}>
                         <h4 className='warehouse-home-page__address-sort-header'>ADDRESS</h4>
-                        <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
+                        <img className={sortActive === 'address' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__sort'>
+                    <button className='warehouse-home-page__sort' onClick={sortContactName}>
                         <h4 className='warehouse-home-page__contact-name-sort-header'>CONTACT NAME</h4>
-                        <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
+                        <img className={sortActive === 'contactName' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__sort'>
+                    <button className='warehouse-home-page__sort' onClick={sortContactInfo}>
                         <h4 className='warehouse-home-page__contact-info-sort-header'>CONTACT INFORMATION</h4>
-                        <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
+                        <img className={sortActive === 'contactInfo' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
                     </button>
                     <button className='warehouse-home-page__actions'>
                         <h4 className='warehouse-home-page__actions-header'>ACTIONS</h4>
