@@ -64,15 +64,19 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                                 </button>
                             </Link>
                             <h4 className='warehouse-card__address-header'>ADDRESS</h4>
-                            <p className='warehouse-card__address-street'>{warehouse.address},</p>
-                            <p className='warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
+                            <div className='warehouse-card__address-info-container'>
+                                <p className='warehouse-card__address-street'>{warehouse.address},</p>
+                                <p className='warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
+                            </div>
                         </div>
                         <div className='warehouse-card__contact-details'>
                             <h4 className='warehouse-card__contact-header'>CONTACT NAME</h4>
                             <p className='warehouse-card__contact-name'>{warehouse.contact.name}</p>
                             <h4 className='warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
-                            <p className='warehouse-card__contact-number'>{warehouse.contact.phone}</p>
-                            <p className='warehouse-card__contact-email'>{warehouse.contact.email}</p>
+                            <div className='warehouse-card__contact-info-container'>
+                                <p className='warehouse-card__contact-number'>{warehouse.contact.phone}</p>
+                                <p className='warehouse-card__contact-email'>{warehouse.contact.email}</p>
+                            </div>
                         </div>
                     </div>
                     <div className='warehouse-card__delete-edit-container'>

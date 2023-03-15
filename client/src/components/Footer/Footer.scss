@@ -8,6 +8,6 @@
 }
 
 .footer-text {
-    @include mixins.copyright-text;
+    @include mixins.mobile-body-medium;
     color: variables.$color-headers-placeholders;
 }

@@ -13,19 +13,37 @@
     border-top: 1px solid variables.$color-borders;
     padding: 1rem 1rem 0;
 
+    @include mixins.tablet {
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
     &__details-container {
         display: flex;
         justify-content: space-around;
+
+        @include mixins.tablet {
+            width: 75%;
+        }
     }
 
     &__warehouse-details {
         flex: 1;
+
+        @include mixins.tablet {
+            display: flex;
+        }
     }
 
     &__warehouse-header {
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+
+        @include mixins.tablet {
+            display: none;
+        }
     }
 
     &__warehouse-link {
@@ -56,6 +74,10 @@
         margin: 1rem 0 0;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+
+        @include mixins.tablet {
+            display: none;
+        }
     }
 
     &__address-street {
@@ -78,6 +100,10 @@
         margin: 0 0 .5rem;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+
+        @include mixins.tablet {
+            display: none;
+        }
     }
 
     &__contact-name {
@@ -91,6 +117,10 @@
         margin: 1.125rem 0 0;
         @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
+
+        @include mixins.tablet {
+            display: none;
+        }
     }
 
     &__contact-number {
@@ -123,6 +153,10 @@
         background: transparent;
         padding: 0;
         margin: 1rem 0 1.5rem;
+
+        @include mixins.tablet {
+            margin: 0;
+        }
     }
 
     &__trashcan {
@@ -134,6 +168,10 @@
         border: none;
         background: transparent;
         padding: 0;
+
+        @include mixins.tablet {
+            margin: 0;
+        }
     }
 
     &__edit {

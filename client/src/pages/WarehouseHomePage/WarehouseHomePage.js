@@ -49,19 +49,19 @@ function WarehouseHomePage() {
                     </div>
                 </div>
                 <div className='warehouse-home-page__sort-buttons-container'>
-                    <button className='warehouse-home-page__warehouse-sort'>
+                    <button className='warehouse-home-page__sort'>
                         <h4 className='warehouse-home-page__warehouse-sort-header'>WAREHOUSE</h4>
                         <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__address-sort'>
+                    <button className='warehouse-home-page__sort'>
                         <h4 className='warehouse-home-page__address-sort-header'>ADDRESS</h4>
                         <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__contact-name-sort'>
+                    <button className='warehouse-home-page__sort'>
                         <h4 className='warehouse-home-page__contact-name-sort-header'>CONTACT NAME</h4>
                         <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
                     </button>
-                    <button className='warehouse-home-page__contact-info-sort'>
+                    <button className='warehouse-home-page__sort'>
                         <h4 className='warehouse-home-page__contact-info-sort-header'>CONTACT INFORMATION</h4>
                         <img className='warehouse-home-page__sort-icon' src={sort} alt='sort icon'></img>
                     </button>
