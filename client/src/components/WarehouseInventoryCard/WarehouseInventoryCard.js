@@ -50,9 +50,6 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
                             </Link>
                         <h4 className='warehouse-inventory-card__category-header'>CATEGORY</h4>
                         <p className='warehouse-inventory-card__category'>{inventory.category}</p>
-                        {/* <button onClick={() => openDeleteModal(inventory)} className='warehouse-inventory-card__trashcan-button'>  
-                            <img className='warehouse-inventory-card__trashcan' src={trashcan} alt='trashcan icon'/>
-                        </button> */}
                     </div>
                     <div className='warehouse-inventory-card__status-details'>
                         <h4 className='warehouse-inventory-card__status-header'>STATUS</h4>
@@ -61,11 +58,6 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
                         </p>
                         <h4 className='warehouse-inventory-card__quantity-header'>QTY</h4>
                         <p className='warehouse-inventory-card__quantity'>{inventory.quantity}</p>
-                        {/* <Link to={`/inventory/edit/${inventory.id}`}>     
-                            <button className='warehouse-inventory-card__edit-button'>  
-                                <img className='warehouse-inventory-card__edit' src={edit} alt='edit icon'/>
-                            </button>
-                        </Link> */}
                     </div>
                 </div>
                 <div className='warehouse-inventory-card__delete-edit-container'>
