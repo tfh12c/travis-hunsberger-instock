@@ -1,0 +1,39 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.warehouse-home-page-sort-bar__sort-buttons-container {
+    display: none;
+
+    @include mixins.tablet {
+        background-color: variables.$color-background-light;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+}
+
+.warehouse-home-page-sort-bar__sort {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: variables.$color-headers-placeholders;
+    width: 20%;
+}
+
+.warehouse-home-page-sort-bar__sort-icon--active {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1782%) hue-rotate(214deg) brightness(93%) contrast(93%);
+}
+
+.warehouse-home-page-sort-bar__actions {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: variables.$color-headers-placeholders;
+    width: 20%;
+}
+
+.warehouse-home-page-sort-bar__warehouse-sort-header, .warehouse-home-page-sort-bar__address-sort-header, .warehouse-home-page-sort-bar__contact-name-sort-header, .warehouse-home-page-sort-bar__contact-info-sort-header, .warehouse-home-page-sort-bar__actions-header {
+    font-size: .6875rem;
+}

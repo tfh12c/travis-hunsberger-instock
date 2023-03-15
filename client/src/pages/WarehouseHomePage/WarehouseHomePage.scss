@@ -86,41 +86,4 @@
             background-color: variables.$color-background-dark;
         }
     }
-
-    &__sort-buttons-container {
-        display: none;
-
-        @include mixins.tablet {
-            background-color: variables.$color-background-light;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-    }
-
-    &__sort {
-        display: flex;
-        align-items: center;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        color: variables.$color-headers-placeholders;
-        width: 20%;
-    }
-
-    &__sort-icon--active {
-        filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1782%) hue-rotate(214deg) brightness(93%) contrast(93%);
-    }
-
-    &__actions {
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        color: variables.$color-headers-placeholders;
-        width: 20%;
-    }
-
-    &__warehouse-sort-header, &__address-sort-header, &__contact-name-sort-header, &__contact-info-sort-header, &__actions-header {
-        font-size: .6875rem;
-    }
 }

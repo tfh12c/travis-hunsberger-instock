@@ -36,7 +36,7 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
   }, [deleteModal])
 
     return (
-        <>
+        <section>
            {inventoryData.map((inventory) => (
             <article key={inventory.id} className='warehouse-inventory-card'>
                 <div className='warehouse-inventory-card__details-container'>  
@@ -85,7 +85,7 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
             </article>
            ))} 
             {deleteModal && <DeleteWarehouseInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
-        </>
+        </section>
     )
 }
 

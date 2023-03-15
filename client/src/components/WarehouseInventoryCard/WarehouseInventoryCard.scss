@@ -7,6 +7,10 @@
     border-top: 1px solid variables.$color-borders;
     padding: 1rem 1rem 0;
 
+    @include mixins.tablet {
+        border-top: 2px solid variables.$color-borders;
+    }
+
     &__details-container {
         display: flex;
         justify-content: space-around;

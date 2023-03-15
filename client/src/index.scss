@@ -68,3 +68,9 @@ a:link {
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
+
+@include mixins.tablet {
+  article:first-child {
+      border-top: none !important;
+  }
+}
