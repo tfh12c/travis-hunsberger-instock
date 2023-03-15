@@ -6,6 +6,10 @@
     margin: -3.5rem 1rem;
     border-radius: .25rem;
 
+        @include mixins.tablet {
+            margin: -7rem 1rem;
+        }
+
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
     }
@@ -36,6 +40,10 @@
 
     &__header {
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            margin: 2.1875rem 0;
+        }
     }
 
     &__edit-button {
@@ -49,6 +57,25 @@
         &:hover {
             background-color: variables.$color-background-dark;
         }
+
+        @include mixins.tablet {
+            border-radius: 1.25rem;
+            width: 5.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+        }
+    }
+
+    &__edit-text {
+        display: none;
+
+        @include mixins.tablet {
+            display: initial;
+            color: variables.$color-white;
+            @include mixins.label-link-button;
+        }
     }
 
     &__edit-icon {
@@ -57,6 +84,22 @@
 
     &__warehouse-details {
         border-top: 1px solid variables.$color-borders;
+
+        @include mixins.tablet {
+            display: flex;
+            border-top: 2px solid variables.$color-borders;
+        }
+    }
+
+    &__address-container {
+        @include mixins.tablet {
+            width: 40%;
+            border-right: 2px solid variables.$color-borders;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 1rem 0;
+        }
     }
 
     &__warehouse-address-header {
@@ -71,7 +114,7 @@
         margin: 0 0 1rem 1rem; 
     }
 
-    &__contact-parent-container {
+    &__contact-section-container {
         display: flex;
         padding: 0 1rem;
     }

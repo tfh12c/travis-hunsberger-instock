@@ -4,7 +4,6 @@
 .warehouse-home-page {
     background-color: variables.$color-white;
     margin: -3.5rem 1rem;
-    // min-height: 10rem;
     border-radius: .25rem;
 
     @include mixins.tablet {

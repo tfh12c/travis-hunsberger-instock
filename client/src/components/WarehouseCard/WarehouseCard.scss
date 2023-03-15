@@ -17,6 +17,8 @@
         flex-direction: row;
         align-items: center;
         padding: 1rem 2rem;
+        border-top: 2px solid variables.$color-borders;
+
         &:hover {
             background-color: variables.$color-background-light;
         }

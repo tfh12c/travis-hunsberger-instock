@@ -70,13 +70,16 @@ function WarehouseDetailsPage() {
                     <Link to={`/warehouse/edit/${id}`}>
                         <button className='warehouse-details-page__edit-button'>
                             <img className='warehouse-details-page__edit-icon' src={edit} alt='edit icon'></img>
+                            <p className='warehouse-details-page__edit-text'>Edit</p>
                         </button>
                     </Link>
                 </div>
-                <div className='warehouse-details-page__warehouse-details'> 
-                    <h3 className='warehouse-details-page__warehouse-address-header'>WAREHOUSE ADDRESS:</h3>
-                    <p className='warehouse-details-page__warehouse-address'>{warehouseData.address}, {warehouseData.city}, {warehouseData.country}</p>
-                    <div className='warehouse-details-page__contact-parent-container'> 
+                <div className='warehouse-details-page__warehouse-details'>
+                    <div className='warehouse-details-page__address-container'>
+                        <h3 className='warehouse-details-page__warehouse-address-header'>WAREHOUSE ADDRESS:</h3>
+                        <p className='warehouse-details-page__warehouse-address'>{warehouseData.address}, {warehouseData.city}, {warehouseData.country}</p>
+                    </div> 
+                    <div className='warehouse-details-page__contact-section-container'> 
                         <div className='warehouse-details-page__contact-name-container'>
                             <h3 className='warehouse-details-page__contact-name-header'>CONTACT NAME:</h3>
                             <p className='warehouse-details-page__contact-name'>{warehouseData.contact.name}</p>
