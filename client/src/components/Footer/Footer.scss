@@ -5,9 +5,17 @@
     margin-top: 4rem;
     display: flex;
     justify-content: center;
+
+    @include mixins.tablet {
+        margin: 9rem 0 1rem 0; 
+    }
 }
 
 .footer-text {
     @include mixins.mobile-body-medium;
     color: variables.$color-headers-placeholders;
+
+    @include mixins.tablet {
+        @include mixins.body-medium;
+    }
 }
