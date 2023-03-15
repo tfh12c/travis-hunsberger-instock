@@ -109,3 +109,19 @@
     color: rgb(201, 69, 21, 1);
     border-radius: 1.25rem
 }
+
+@mixin tag-instock {
+    height: 1.625rem;
+    padding: 0 .5rem;
+    background-color: rgba(21, 132, 99, 0.07);
+    color: rgb(21, 132, 99);
+    border-radius: 1.25rem
+}
+
+@mixin tag-outofstock {
+    height: 1.625rem;
+    padding: 0 .5rem;
+    background-color: rgba(201, 69, 21, 0.07);
+    color: rgb(201, 69, 21, 1);
+    border-radius: 1.25rem
+}

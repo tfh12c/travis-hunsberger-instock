@@ -78,6 +78,10 @@
         &:hover {
             text-decoration: underline;
         }
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__address-info-section {
@@ -100,12 +104,20 @@
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__address-city-country {
         margin: .25rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__contact-details {
@@ -138,6 +150,10 @@
         color: variables.$color-primary-text;
         margin: 0;
         padding-top: 2px;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__contact-info-section {
@@ -160,12 +176,20 @@
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__contact-email {
         margin: .25rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__delete-edit-container {

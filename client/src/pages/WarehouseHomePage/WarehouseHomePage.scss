@@ -112,4 +112,8 @@
         color: variables.$color-headers-placeholders;
         width: 20%;
     }
+
+    &__warehouse-sort-header, &__address-sort-header, &__contact-name-sort-header, &__contact-info-sort-header, &__actions-header {
+        font-size: .6875rem;
+    }
 }
