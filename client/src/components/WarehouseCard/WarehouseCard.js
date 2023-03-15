@@ -56,24 +56,28 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                 <article key={warehouse.id} className='warehouse-card'>
                     <div className='warehouse-card__details-container'>  
                         <div className='warehouse-card__warehouse-details'>
-                            <h4 className='warehouse-card__warehouse-header'>WAREHOUSE</h4>
-                            <Link to={`/warehouse/${warehouse.id}`} className='link'> 
-                                <button className='warehouse-card__name-icon-button'>   
-                                    <h3 className='warehouse-card__warehouse-name'>{warehouse.name}</h3>
-                                    <img className='warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
-                                </button>
-                            </Link>
-                            <h4 className='warehouse-card__address-header'>ADDRESS</h4>
-                            <div className='warehouse-card__address-info-container'>
+                            <div className='warehouse-card__warehouse-section'>
+                                <h4 className='warehouse-card__warehouse-header'>WAREHOUSE</h4>
+                                <Link to={`/warehouse/${warehouse.id}`} className='link'> 
+                                    <button className='warehouse-card__name-icon-button'>   
+                                        <h3 className='warehouse-card__warehouse-name'>{warehouse.name}</h3>
+                                        <img className='warehouse-card__warehouse-name-chevron' src={chevron} alt='chevron icon'/>
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className='warehouse-card__address-info-section'>
+                                <h4 className='warehouse-card__address-header'>ADDRESS</h4>
                                 <p className='warehouse-card__address-street'>{warehouse.address},</p>
                                 <p className='warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
                             </div>
                         </div>
                         <div className='warehouse-card__contact-details'>
-                            <h4 className='warehouse-card__contact-header'>CONTACT NAME</h4>
-                            <p className='warehouse-card__contact-name'>{warehouse.contact.name}</p>
-                            <h4 className='warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
-                            <div className='warehouse-card__contact-info-container'>
+                            <div className='warehouse-card__contact-name-section'>
+                                <h4 className='warehouse-card__contact-header'>CONTACT NAME</h4>
+                                <p className='warehouse-card__contact-name'>{warehouse.contact.name}</p>
+                            </div>
+                            <div className='warehouse-card__contact-info-section'>
+                                <h4 className='warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
                                 <p className='warehouse-card__contact-number'>{warehouse.contact.phone}</p>
                                 <p className='warehouse-card__contact-email'>{warehouse.contact.email}</p>
                             </div>

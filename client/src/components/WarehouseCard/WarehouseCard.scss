@@ -17,6 +17,9 @@
         flex-direction: row;
         align-items: center;
         padding: 1rem 2rem;
+        &:hover {
+            background-color: variables.$color-background-light;
+        }
     }
 
     &__details-container {
@@ -24,7 +27,7 @@
         justify-content: space-around;
 
         @include mixins.tablet {
-            width: 75%;
+            width: 80%;
         }
     }
 
@@ -33,6 +36,13 @@
 
         @include mixins.tablet {
             display: flex;
+            align-items: center;
+        }
+    }
+
+    &__warehouse-section {
+        @include mixins.tablet {
+            width: 50%;
         }
     }
 
@@ -70,6 +80,12 @@
         }
     }
 
+    &__address-info-section {
+        @include mixins.tablet {
+            width: 50%;
+        }
+    }
+
     &__address-header {
         margin: 1rem 0 0;
         @include mixins.mobile-table-header;
@@ -94,6 +110,17 @@
 
     &__contact-details {
         flex: 1;
+
+        @include mixins.tablet {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__contact-name-section {
+        @include mixins.tablet {
+            width: 50%;
+        }
     }
 
     &__contact-header {
@@ -111,6 +138,12 @@
         color: variables.$color-primary-text;
         margin: 0;
         padding-top: 2px;
+    }
+
+    &__contact-info-section {
+        @include mixins.tablet {
+            width: 50%;
+        }
     }
 
     &__contact-info-header {
@@ -137,14 +170,28 @@
 
     &__delete-edit-container {
         display: flex;
+
+        @include mixins.tablet {
+            width: 20%;
+            justify-content: center;
+        }
     }
 
     &__trashcan-container {
         flex: 1;
+
+        @include mixins.tablet {
+            flex: none;
+            margin-right: 1rem;
+        }
     }
 
     &__edit-container {
         flex: 1;
+
+        @include mixins.tablet {
+            flex: none;
+        }
     }
 
 
