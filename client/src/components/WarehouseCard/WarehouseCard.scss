@@ -50,7 +50,6 @@
 
     &__warehouse-header {
         margin: 0 0 .5rem;
-        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
 
         @include mixins.tablet {
@@ -94,7 +93,6 @@
 
     &__address-header {
         margin: 1rem 0 0;
-        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
 
         @include mixins.tablet {
@@ -139,7 +137,6 @@
 
     &__contact-header {
         margin: 0 0 .5rem;
-        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
 
         @include mixins.tablet {
@@ -166,7 +163,6 @@
 
     &__contact-info-header {
         margin: 1.125rem 0 0;
-        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
 
         @include mixins.tablet {

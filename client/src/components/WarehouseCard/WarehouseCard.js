@@ -57,7 +57,7 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                     <div className='warehouse-card__details-container'>  
                         <div className='warehouse-card__warehouse-details'>
                             <div className='warehouse-card__warehouse-section'>
-                                <h4 className='warehouse-card__warehouse-header'>WAREHOUSE</h4>
+                                <h3 className='warehouse-card__warehouse-header'>WAREHOUSE</h3>
                                 <Link to={`/warehouse/${warehouse.id}`} className='link'> 
                                     <button className='warehouse-card__name-icon-button'>   
                                         <h3 className='warehouse-card__warehouse-name'>{warehouse.name}</h3>
@@ -66,18 +66,18 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
                                 </Link>
                             </div>
                             <div className='warehouse-card__address-info-section'>
-                                <h4 className='warehouse-card__address-header'>ADDRESS</h4>
+                                <h3 className='warehouse-card__address-header'>ADDRESS</h3>
                                 <p className='warehouse-card__address-street'>{warehouse.address},</p>
                                 <p className='warehouse-card__address-city-country'>{warehouse.city}, {warehouse.country}</p>
                             </div>
                         </div>
                         <div className='warehouse-card__contact-details'>
                             <div className='warehouse-card__contact-name-section'>
-                                <h4 className='warehouse-card__contact-header'>CONTACT NAME</h4>
+                                <h3 className='warehouse-card__contact-header'>CONTACT NAME</h3>
                                 <p className='warehouse-card__contact-name'>{warehouse.contact.name}</p>
                             </div>
                             <div className='warehouse-card__contact-info-section'>
-                                <h4 className='warehouse-card__contact-info-header'>CONTACT INFORMATION</h4>
+                                <h3 className='warehouse-card__contact-info-header'>CONTACT INFORMATION</h3>
                                 <p className='warehouse-card__contact-number'>{warehouse.contact.phone}</p>
                                 <p className='warehouse-card__contact-email'>{warehouse.contact.email}</p>
                             </div>
