@@ -9,8 +9,12 @@
     padding: 0 1rem;
     min-height: 13rem;
 
+    @include mixins.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     &__instock-link {
-        margin: 1.5rem 0;
         text-decoration: none;
 
         &:hover {
@@ -18,8 +22,19 @@
         }
     }
 
+    &__instock-image {
+        @include mixins.tablet {
+            height: 2rem;
+            margin-bottom: 7rem;
+        }
+    }
+
     &__nav {
         width: 100%;
+
+        @include mixins.tablet {
+            width: 40%;
+        }
     }
 
     &__nav-list {
@@ -28,6 +43,9 @@
         padding: 0;
         display: flex;
 
+        @include mixins.tablet {
+            margin: 0 0 7rem 0;
+        }
     }
 
     &__nav-item {
@@ -50,7 +68,7 @@
 
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
+            text-decoration: underline !important;
             color: variables.$color-white;
         }
 
