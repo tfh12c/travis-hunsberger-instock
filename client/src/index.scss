@@ -63,6 +63,10 @@ a:link {
 *::placeholder {
   color: variables.$color-headers-placeholders;
   @include mixins.mobile-body-medium;
+
+  @include mixins.tablet {
+    @include mixins.body-medium;
+  }
 }
 
 input[type="search"]::-webkit-search-cancel-button {

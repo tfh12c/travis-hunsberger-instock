@@ -17,12 +17,14 @@
 
     &__arrow-back-link {
         display: flex;
+        margin-left: 1rem;
     }
 
     &__arrow-back-button {
         border: none;
         background-color: transparent;
-        margin-left: 1rem;
+        padding: 0;
+        margin-right: .5rem;
     }
 
     &__arrow-back-icon {
