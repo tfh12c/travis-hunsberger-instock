@@ -119,6 +119,7 @@
 }
 
 @mixin tag-outofstock {
+    display: inline-block;
     height: 1.625rem;
     padding: 0 .5rem;
     background-color: rgba(201, 69, 21, 0.07);

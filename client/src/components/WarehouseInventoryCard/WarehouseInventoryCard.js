@@ -41,23 +41,31 @@ function WarehouseInventoryCard({ inventoryData, getInventoryOfWarehouse, wareho
             <article key={inventory.id} className='warehouse-inventory-card'>
                 <div className='warehouse-inventory-card__details-container'>  
                     <div className='warehouse-inventory-card__item-details'>
-                        <h4 className='warehouse-inventory-card__inventory-header'>INVENTORY ITEM</h4>
+                        <div className='warehouse-inventory-card__inventory-section'>
+                            <h4 className='warehouse-inventory-card__inventory-header'>INVENTORY ITEM</h4>
                             <Link to={`/inventory/${inventory.id}`}>  
                                 <button className='warehouse-inventory-card__name-icon-button'>   
                                     <h3 className='warehouse-inventory-card__inventory-name'>{inventory.itemName}</h3>
                                     <img className='warehouse-inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
                                 </button>
                             </Link>
-                        <h4 className='warehouse-inventory-card__category-header'>CATEGORY</h4>
-                        <p className='warehouse-inventory-card__category'>{inventory.category}</p>
+                        </div>
+                        <div className='warehouse-inventory-card__category-section'>
+                            <h4 className='warehouse-inventory-card__category-header'>CATEGORY</h4>
+                            <p className='warehouse-inventory-card__category'>{inventory.category}</p>
+                        </div>
                     </div>
                     <div className='warehouse-inventory-card__status-details'>
-                        <h4 className='warehouse-inventory-card__status-header'>STATUS</h4>
-                        <p className='warehouse-inventory-card__status'>
-                            <span className={inventory.quantity ? 'warehouse-inventory-card__status-tag--instock' : 'warehouse-inventory-card__status-tag--outofstock'}>{inventory.status}</span>
-                        </p>
-                        <h4 className='warehouse-inventory-card__quantity-header'>QTY</h4>
-                        <p className='warehouse-inventory-card__quantity'>{inventory.quantity}</p>
+                        <div className='warehouse-inventory-card__status-section'>
+                            <h4 className='warehouse-inventory-card__status-header'>STATUS</h4>
+                            <p className='warehouse-inventory-card__status'>
+                                <span className={inventory.quantity ? 'warehouse-inventory-card__status-tag--instock' : 'warehouse-inventory-card__status-tag--outofstock'}>{inventory.status}</span>
+                            </p>
+                        </div>
+                        <div className='warehouse-inventory-card__quantity-section'>
+                            <h4 className='warehouse-inventory-card__quantity-header'>QTY</h4>
+                            <p className='warehouse-inventory-card__quantity'>{inventory.quantity}</p>
+                        </div>
                     </div>
                 </div>
                 <div className='warehouse-inventory-card__delete-edit-container'>

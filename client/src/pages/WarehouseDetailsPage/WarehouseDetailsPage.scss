@@ -98,7 +98,7 @@
 
     &__address-container {
         @include mixins.tablet {
-            width: 40%;
+            width: 35%;
             border-right: 2px solid variables.$color-borders;
             display: flex;
             flex-direction: column;
@@ -131,7 +131,7 @@
         padding: 0 1rem;
 
         @include mixins.tablet {
-            width: 60%;
+            width: 65%;
         }
     }
 
@@ -139,7 +139,7 @@
         flex: 1;
 
         @include mixins.tablet {
-            margin-left: 1rem;
+            margin-left: 2rem;
         }
     }
 

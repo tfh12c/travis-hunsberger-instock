@@ -11,7 +11,7 @@ const port = process.env.PORT || 8080;
 
 //Middleware
 app.use(express.json()); //parses incoming JSON requests and puts the parsed data in req.body
-app.use(cors());
+app.use(cors()); //allows front end to make calls to API
 
 //Routes
 app.use('/warehouse', warehouseRoutes);

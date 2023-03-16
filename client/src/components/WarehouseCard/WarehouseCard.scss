@@ -51,10 +51,6 @@
         }
     }
 
-    &__warehouse-link {
-        text-decoration: none;
-    }
-
     &__name-icon-button {
         display: flex;
         cursor: pointer;
@@ -70,12 +66,12 @@
         margin: 0;
         cursor: pointer;
 
-        &:hover {
-            text-decoration: underline;
-        }
-
         @include mixins.tablet {
             @include mixins.body-medium;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
