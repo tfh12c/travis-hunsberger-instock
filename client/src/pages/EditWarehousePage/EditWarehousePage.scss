@@ -6,6 +6,10 @@
     margin: -3.5rem 1rem;
     border-radius: .25rem;
 
+    @include mixins.tablet {
+        margin: -7rem 2.5rem;
+    }
+
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
     }
@@ -13,11 +17,19 @@
     &__header-content { 
         display: flex;
         border-bottom: 1px solid variables.$color-borders;
+
+        @include mixins.tablet {
+            border-bottom: 2px solid variables.$color-borders;
+        }
     }
 
     &__arrow-back-link {
         display: flex;
         margin-left: 1rem;
+
+        @include mixins.tablet {
+            margin-left: 2rem;
+        }
     }
 
     &__arrow-back-button {
@@ -34,5 +46,9 @@
 
     &__header {
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            margin: 2.1875rem 0;
+        }
     }
 }
