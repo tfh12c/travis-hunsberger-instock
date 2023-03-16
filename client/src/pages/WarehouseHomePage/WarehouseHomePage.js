@@ -2,7 +2,6 @@ import './WarehouseHomePage.scss';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import sort from '../../assets/icons/sort.svg';
 import WarehouseHomePageSortBar from '../../components/WarehouseHomePageSortBar/WarehouseHomePageSortBar';
 import WarehouseCard from '../../components/WarehouseCard/WarehouseCard';
 
@@ -28,8 +27,6 @@ function WarehouseHomePage() {
             setError('Could not fetch data.');
         }
     }
-
-    console.log(sortActive);
 
      //Runs when component mounts
      useEffect(() => {
@@ -76,27 +73,6 @@ function WarehouseHomePage() {
                         </Link>
                     </div>
                 </div>
-                {/* <div className='warehouse-home-page__sort-buttons-container'>
-                    <button className='warehouse-home-page__sort' onClick={sortWarehouse}>
-                        <h4 className='warehouse-home-page__warehouse-sort-header'>WAREHOUSE</h4>
-                        <img className={sortActive === 'warehouse' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
-                    </button>
-                    <button className='warehouse-home-page__sort' onClick={sortAddress}>
-                        <h4 className='warehouse-home-page__address-sort-header'>ADDRESS</h4>
-                        <img className={sortActive === 'address' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
-                    </button>
-                    <button className='warehouse-home-page__sort' onClick={sortContactName}>
-                        <h4 className='warehouse-home-page__contact-name-sort-header'>CONTACT NAME</h4>
-                        <img className={sortActive === 'contactName' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
-                    </button>
-                    <button className='warehouse-home-page__sort' onClick={sortContactInfo}>
-                        <h4 className='warehouse-home-page__contact-info-sort-header'>CONTACT INFORMATION</h4>
-                        <img className={sortActive === 'contactInfo' ? 'warehouse-home-page__sort-icon--active' : ''} src={sort} alt='sort icon'></img>
-                    </button>
-                    <button className='warehouse-home-page__actions'>
-                        <h4 className='warehouse-home-page__actions-header'>ACTIONS</h4>
-                    </button>
-                </div> */}
                 {data && <WarehouseHomePageSortBar sortActive={sortActive} sortWarehouse={sortWarehouse} sortAddress={sortAddress} sortContactName={sortContactName} sortContactInfo={sortContactInfo} />}
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
