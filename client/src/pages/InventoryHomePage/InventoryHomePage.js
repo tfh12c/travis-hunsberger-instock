@@ -80,6 +80,7 @@ function InventoryHomePage() {
                         </Link>
                     </div>
                 </div>
+                {data && <InventoryHomePageSortBar sort={sort} sortInventory={sortInventory} sortCategory={sortCategory} sortStatus={sortStatus} sortQuantity={sortQuantity} sortWarehouse={sortWarehouse} />}
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
                 {data && <InventoryCard inventory={data} getInventory={getInventory} search={search} />}

@@ -18,11 +18,11 @@ function InventoryHomePageSortBar({ sort, sortInventory, sortCategory, sortStatu
                 <img className={sort === 'status' ? 'inventory-home-page-sort-bar__sort-icon--active' : ''} src={sortIcon} alt='sort icon'></img>
             </button>
             <button className='inventory-home-page-sort-bar__sort' onClick={sortQuantity}>
-                <h4 className='inventory-home-page-sort-bar__contact-info-sort-header'>QUANTITY</h4>
+                <h4 className='inventory-home-page-sort-bar__contact-info-sort-header'>QTY</h4>
                 <img className={sort === 'quantity' ? 'inventory-home-page-sort-bar__sort-icon--active' : ''} src={sortIcon} alt='sort icon'></img>
             </button>
             <button className='inventory-home-page-sort-bar__sort' onClick={sortWarehouse}>
-                <h4 className='inventory-home-page-sort-bar__contact-info-sort-header'>QUANTITY</h4>
+                <h4 className='inventory-home-page-sort-bar__contact-info-sort-header'>WAREHOUSE</h4>
                 <img className={sort === 'warehouse' ? 'inventory-home-page-sort-bar__sort-icon--active' : ''} src={sortIcon} alt='sort icon'></img>
             </button>
             <button className='inventory-home-page-sort-bar__actions'>
