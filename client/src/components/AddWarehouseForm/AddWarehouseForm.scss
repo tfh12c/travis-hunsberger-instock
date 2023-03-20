@@ -3,21 +3,44 @@
 
 .add-warehouse-form {
 
+    &__input-section {
+        @include mixins.tablet {
+            display: flex;
+            padding: 1rem;
+        }
+    }
+
     &__warehouse-details-container {
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid variables.$color-borders;
         padding: 0 1rem .5rem;
+
+        @include mixins.tablet {
+            width: 50%;
+            border-bottom: none;
+            border-right: 2px solid variables.$color-borders;
+            padding-right: 2rem;
+        }
     }
 
     &__contact-details-container {
         display: flex;
         flex-direction: column;
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            width: 50%;
+            padding-left: 2rem;
+        }
     }
 
     &__header {
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            margin: 1rem 0;
+        }
     }
 
     &__label {
@@ -28,6 +51,10 @@
 
         &:focus {
             border: 1px solid variables.$color-primary-cta;
+        }
+
+        @include mixins.tablet {
+            @include mixins.label-link-button;
         }
     }
 
@@ -41,14 +68,14 @@
             border: 1px solid variables.$color-primary-cta;
         }
 
-        &--no-error {
-            display: none;
-        }
-
         &--error {
             display: flex;
             align-items: center;
             margin: -0.5rem 0 1rem;
+        }
+
+        @include mixins.tablet {
+            @include mixins.form-field;
         }
     }
 
@@ -68,6 +95,10 @@
         gap: 1rem;
         padding: 1rem;
         background-color: variables.$color-background-light;
+
+        @include mixins.tablet {
+            justify-content: flex-end;
+        }
     }
 
     &__cancel-button {
@@ -83,6 +114,12 @@
             color: variables.$color-primary-cta;
             cursor: pointer;
         }
+
+        @include mixins.tablet {
+            width: 5rem;
+            @include mixins.cta-button;
+            @include mixins.label-link-button;
+        }
     }
 
     &__save-button {
@@ -97,6 +134,11 @@
         &:hover {
             background-color: variables.$color-background-dark;
             cursor: pointer;
+        }
+
+        @include mixins.tablet {
+            width: 9rem;
+            margin-right: 1rem;
         }
     }
 }

@@ -48,6 +48,14 @@
         color: variables.$color-primary-text;
         font-weight: 600;
         margin-bottom: .25rem;
+
+        &:focus {
+            border: 1px solid variables.$color-primary-cta;
+        }
+
+        @include mixins.tablet {
+            @include mixins.label-link-button;
+        }
     }
 
     &__input {
@@ -65,16 +73,9 @@
             align-items: center;
             margin: -0.5rem 0 1rem;
         }
-    }
 
-    &__input-warning {
-        @include mixins.mobile-form-field;
-        color: variables.$color-primary-text;
-        border: 1px solid variables.$color-error;
-        margin-bottom: 1rem;
-
-        &:focus {
-            border: 1px solid variables.$color-primary-cta;
+        @include mixins.tablet {
+            @include mixins.form-field;
         }
     }
 
@@ -115,7 +116,9 @@
         }
 
         @include mixins.tablet {
-            width: 4.5rem;
+            width: 5rem;
+            @include mixins.cta-button;
+            @include mixins.label-link-button;
         }
     }
 
