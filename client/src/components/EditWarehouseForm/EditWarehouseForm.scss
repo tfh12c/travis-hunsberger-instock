@@ -59,6 +59,7 @@
     }
 
     &__input {
+        @include mixins.mobile-body-medium;
         @include mixins.mobile-form-field;
         color: variables.$color-primary-text;
         border: 1px solid variables.$color-borders;
@@ -76,6 +77,7 @@
 
         @include mixins.tablet {
             @include mixins.form-field;
+            @include mixins.body-medium
         }
     }
 
