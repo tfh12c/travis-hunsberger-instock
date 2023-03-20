@@ -6,7 +6,7 @@ function InventoryHomePageSortBar({ sort, sortInventory, sortCategory, sortStatu
     return (
         <div className='inventory-home-page-sort-bar__sort-buttons-container'>
             <button className='inventory-home-page-sort-bar__sort' onClick={sortInventory}>
-                <h4 className='inventory-home-page-sort-bar__warehouse-sort-header'>INVENTORY ITEM</h4>
+                <h4 className='inventory-home-page-sort-bar__warehouse-sort-header'>INV. ITEM</h4>
                 <img className={sort === 'inventory' ? 'inventory-home-page-sort-bar__sort-icon--active' : ''} src={sortIcon} alt='sort icon'></img>
             </button>
             <button className='inventory-home-page-sort-bar__sort' onClick={sortCategory}>

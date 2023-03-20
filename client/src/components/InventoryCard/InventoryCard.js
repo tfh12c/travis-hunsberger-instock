@@ -42,30 +42,40 @@ function InventoryCard({ inventory, getInventory, search }) {
     }, [search, inventory])
 
     return (
-        <>
+        <section>
            {filteredInventory.map((item) => (
             <article key={item.id} className='inventory-card'>
                 <div className='inventory-card__details-container'>  
                     <div className='inventory-card__item-details'>
-                        <h4 className='inventory-card__inventory-header'>INVENTORY ITEM</h4>
-                        <Link to={`/inventory/${item.id}`}> 
-                            <button className='inventory-card__name-icon-button'>   
-                                <h3 className='inventory-card__inventory-name'>{item.itemName}</h3>
-                                <img className='inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
-                            </button>
-                        </Link>
-                        <h4 className='inventory-card__category-header'>CATEGORY</h4>
-                        <p className='inventory-card__category'>{item.category}</p>
+                        <div className='inventory-card__item-section'>
+                            <h4 className='inventory-card__inventory-header'>INVENTORY ITEM</h4>
+                            <Link to={`/inventory/${item.id}`}> 
+                                <button className='inventory-card__name-icon-button'>   
+                                    <h3 className='inventory-card__inventory-name'>{item.itemName}</h3>
+                                    <img className='inventory-card__inventory-name-chevron' src={chevron} alt='chevron icon'/>
+                                </button>
+                            </Link>
+                        </div>
+                        <div className='iventory-card__category-section'>
+                            <h4 className='inventory-card__category-header'>CATEGORY</h4>
+                            <p className='inventory-card__category'>{item.category}</p>
+                        </div>
                     </div>
                     <div className='inventory-card__status-details'>
-                        <h4 className='inventory-card__status-header'>STATUS</h4>
-                        <p className='inventory-card__status'>
-                            <span className={item.quantity ? 'inventory-card__status-tag--instock' : 'inventory-card__status-tag--outofstock'}>{item.status}</span>
-                        </p>
-                        <h4 className='inventory-card__quantity-header'>QTY</h4>
-                        <p className='inventory-card__quantity'>{item.quantity}</p>
-                        <h4 className='inventory-card__warehouse-header'>WAREHOUSE</h4>
-                        <p className='inventory-card__warehouse'>{item.warehouseName}</p>
+                        <div className='inventory-card__status-section'>
+                            <h4 className='inventory-card__status-header'>STATUS</h4>
+                            <p className='inventory-card__status'>
+                                <span className={item.quantity ? 'inventory-card__status-tag--instock' : 'inventory-card__status-tag--outofstock'}>{item.status}</span>
+                            </p>
+                        </div>
+                        <div className='inventory-card__quantity-section'>
+                            <h4 className='inventory-card__quantity-header'>QTY</h4>
+                            <p className='inventory-card__quantity'>{item.quantity}</p>
+                        </div>
+                        <div className='inventory-card__warehouse-section'>
+                            <h4 className='inventory-card__warehouse-header'>WAREHOUSE</h4>
+                            <p className='inventory-card__warehouse'>{item.warehouseName}</p>
+                        </div>
                     </div>
                 </div>
                 <div className='inventory-card__delete-edit-container'>
@@ -88,7 +98,7 @@ function InventoryCard({ inventory, getInventory, search }) {
                 <h2 className='inventory-card__not-found'>No Item Found.</h2>
             </div>}
            {deleteModal && <DeleteInventoryModal closeDeleteModal={closeDeleteModal} handleDelete={handleDelete} item={item} />} 
-        </>
+        </section>
     )
 }
 

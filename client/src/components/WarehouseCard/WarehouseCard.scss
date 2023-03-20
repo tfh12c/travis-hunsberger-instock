@@ -138,10 +138,11 @@
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
         margin: 0;
-        padding-top: 2px;
+        padding-top: .125rem;
 
         @include mixins.tablet {
             @include mixins.body-medium;
+            padding-top: 0;
         }
     }
 
