@@ -10,6 +10,11 @@
     height: 100%;
     overflow: auto;
 
+    @include mixins.tablet {
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+    }
+
     &__modal-content {
         display: flex;
         flex-direction: column;
@@ -19,10 +24,50 @@
         height: 100%;
         background-color: variables.$color-white;
         padding: 2rem 1rem 1.5rem;
+
+        @include mixins.tablet {
+            width: 85%;
+            height: 15rem;
+            position: absolute; //center
+            left: 50%; //center
+            top: 40%; //center
+            transform: translate(-50%, -50%); //center
+            justify-content: normal;
+            padding: 2rem;
+        }
+    }
+
+    &__close-button {
+        display: none;
+
+        @include mixins.tablet {
+            display: initial;
+            position: absolute;
+            top: 5%;
+            right: 2%;
+            border: none;
+            background: transparent;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__header {
+        @include mixins.tablet {
+            margin: 0 0 0 1rem;;
+        }
     }
 
     &__body {
         @include mixins.mobile-body-large;
+
+        @include mixins.tablet {
+            @include mixins.body-large;
+            width: 70%;
+            margin-left: 1rem;
+        }
     }
 
     &__button-container {
@@ -30,6 +75,11 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+
+        @include mixins.tablet {
+            justify-content: flex-end;
+            margin: 1rem 2rem 0 0;
+        }
     }
 
     &__cancel {
@@ -45,6 +95,11 @@
             border: 1px solid variables.$color-primary-cta;
             color: variables.$color-primary-cta;
         }
+
+        @include mixins.tablet {
+            width: 6rem;
+            @include mixins.label-link-button;
+        }
     }
 
     &__delete {
@@ -58,6 +113,11 @@
 
         &:hover {
             background-color: variables.$color-background-dark;
+        }
+
+        @include mixins.tablet {
+            width: 6rem;
+            @include mixins.label-link-button;
         }
     }
 }
