@@ -79,6 +79,7 @@
             display: initial;
             color: variables.$color-white;
             @include mixins.label-link-button;
+            margin: 0;
         }
     }
 

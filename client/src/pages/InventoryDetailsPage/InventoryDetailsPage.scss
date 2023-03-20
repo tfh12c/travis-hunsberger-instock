@@ -6,6 +6,10 @@
     margin: -3.5rem 1rem;
     border-radius: .25rem;
 
+    @include mixins.tablet {
+        margin: -7rem 2.5rem;
+    }
+
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
     }
@@ -15,6 +19,10 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            padding: 0 2rem;
+        }
     }
 
     &__header-container {
@@ -36,6 +44,10 @@
 
     &__header {
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            margin: 2.1875rem 0;
+        }
     }
 
     &__edit-button {
@@ -49,6 +61,26 @@
         &:hover {
             background-color: variables.$color-background-dark;
         }
+
+        @include mixins.tablet {
+            border-radius: 1.25rem;
+            width: 5.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+        }
+    }
+
+    &__edit-text {
+        display: none;
+
+        @include mixins.tablet {
+            display: initial;
+            color: variables.$color-white;
+            @include mixins.label-link-button;
+            margin: 0;
+        }
     }
 
     &__edit-icon {
@@ -58,11 +90,23 @@
     &__item-details {
         border-top: 1px solid variables.$color-borders;
         padding: 1rem 1rem;
+
+        @include mixins.tablet {
+            border-top: 2px solid variables.$color-borders;
+            padding: 2rem 2rem;
+            display: flex;
+        }
+    }
+
+    &__item-category-container {
+        @include mixins.tablet {
+            width: 50%;
+            border-right: 2px solid variables.$color-borders;
+        }
     }
 
     &__item-header {
         margin: 0 0 .5rem;
-        @include mixins.mobile-table-header;
         color: variables.$color-headers-placeholders;
     }
 
@@ -70,16 +114,38 @@
         margin: .5rem 0 1rem;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+            margin-bottom: 2rem;
+            width: 85%;
+        }
     }
 
     &__category {
         margin: .5rem 0 1rem;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+            margin: 0;
+        }
+    }
+
+    &__status-quantity-warehouse-container {
+        @include mixins.tablet {
+            width: 50%;
+            padding-left: 2rem;
+        }
     }
 
     &__status-quantity-container {
         display: flex;
+
+        @include mixins.tablet {
+            margin-bottom: 2rem;
+        }
     }
 
     &__status-content {
@@ -90,17 +156,30 @@
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
         margin: 0;
-        padding-top: 2px;
+        padding-top: .125rem;
         text-transform: uppercase;
         font-weight: 600;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__status-tag {
         &--instock {
             @include mixins.mobile-tag-instock;
+
+            @include mixins.tablet {
+                @include mixins.tag-instock;
+            }
         }
         &--outofstock {
             @include mixins.mobile-tag-outofstock;
+
+            @include mixins.tablet {
+                @include mixins.tag-outofstock;
+                padding-top: .125rem;
+            }
         }
     }
 
@@ -112,11 +191,19 @@
         margin: .5rem 0 1rem;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 
     &__warehouse {
         margin: .5rem 0 0;
         @include mixins.mobile-body-medium;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            @include mixins.body-medium;
+        }
     }
 }
