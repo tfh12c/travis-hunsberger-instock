@@ -4,8 +4,11 @@
 .inventory-home-page {
     background-color: variables.$color-white;
     margin: -3.5rem 1rem;
-    // min-height: 10rem;
     border-radius: .25rem;
+
+    @include mixins.tablet {
+        margin: -7rem 2.5rem;
+    }
 
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
@@ -13,11 +16,26 @@
 
     &__header-content {
         padding: 0 1rem;
+
+        @include mixins.tablet {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            justify-content: space-between;
+        }
     }
 
     &__header {
         margin: 0;
         padding: 1.5rem 0 1rem 0;
+    }
+
+    &__search-add-container {
+        @include mixins.tablet {
+            display: flex;
+            padding-top: .875rem;
+            justify-content: flex-end;
+        }
     }
 
     &__search-input {
@@ -29,6 +47,11 @@
         background-position: 96% 50%;
         margin-bottom: 1rem;
 
+        @include mixins.tablet {
+            margin-bottom: 0;
+            width: 11rem;
+        }
+
         &:focus {
             border: 1px solid variables.$color-primary-cta;
         }
@@ -38,7 +61,14 @@
         }
     }
 
-    &__add-warehouse-button {
+    &__add-new-inventory-link {
+        @include mixins.tablet {
+            width: 8rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &__add-inventory-button {
         display: block;
         @include mixins.cta-button-mobile;
         @include mixins.mobile-label-link-button;
@@ -47,6 +77,10 @@
         color: variables.$color-white;
         cursor: pointer;
         margin-bottom: 1.5rem;
+
+        @include mixins.tablet {
+            margin-bottom: 0;
+        }
 
         &:hover {
             background-color: variables.$color-background-dark;
