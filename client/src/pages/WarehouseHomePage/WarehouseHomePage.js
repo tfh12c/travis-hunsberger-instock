@@ -11,7 +11,7 @@ function WarehouseHomePage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
-    const [sortActive, setSortActive] = useState('');
+    const [sort, setSort] = useState('');
 
     //GET all warehouse data from backend api
     const getWarehouses = async () => {
@@ -38,27 +38,30 @@ function WarehouseHomePage() {
     }
 
     const sortWarehouse = () => {
+        //how to do alternate asc/desc use if checks
+        //need to make another piece of state to flip the sorts. sortAsc, setSortAsc useState
+
         const sortedData = [].concat(data).sort((a, b) => a.name > b.name ? 1 : -1);
         setData(sortedData);
-        setSortActive('warehouse')
+        setSort('warehouse')
     }
 
     const sortAddress = () => {
         const sortedData = [].concat(data).sort((a, b) => a.address > b.address ? 1 : -1);
         setData(sortedData);
-        setSortActive('address');
+        setSort('address');
     }
 
     const sortContactName = () => {
         const sortedData = [].concat(data).sort((a, b) => a.contact.name > b.contact.name ? 1 : -1);
         setData(sortedData);
-        setSortActive('contactName');
+        setSort('contactName');
     }
 
     const sortContactInfo = () => {
         const sortedData = [].concat(data).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
         setData(sortedData);
-        setSortActive('contactInfo');
+        setSort('contactInfo');
     }
     
     return (
@@ -73,7 +76,7 @@ function WarehouseHomePage() {
                         </Link>
                     </div>
                 </div>
-                {data && <WarehouseHomePageSortBar sortActive={sortActive} sortWarehouse={sortWarehouse} sortAddress={sortAddress} sortContactName={sortContactName} sortContactInfo={sortContactInfo} />}
+                {data && <WarehouseHomePageSortBar sort={sort} sortWarehouse={sortWarehouse} sortAddress={sortAddress} sortContactName={sortContactName} sortContactInfo={sortContactInfo} />}
                 {error && <p>{error}</p>}
                 {loading && <p>Loading...</p>}
                 {data && <WarehouseCard warehouses={data} getWarehouses={getWarehouses} search={search} />}

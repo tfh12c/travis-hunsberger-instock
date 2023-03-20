@@ -13,7 +13,7 @@ function WarehouseDetailsPage() {
     const [inventoryData, setInventoryData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [sortActive, setSortActive] = useState('');
+    const [sort, setSort] = useState('');
     const { id } = useParams();
 
     //GET warehouse by ID
@@ -51,32 +51,29 @@ function WarehouseDetailsPage() {
         getWarehouseById(id);
         getInventoryOfWarehouse(id);
     }, [id])
-
-    // console.log(warehouseData);
-    console.log(inventoryData);
     
     const sortInventory = () => {
         const sortedData = [].concat(inventoryData).sort((a, b) => a.itemName > b.itemName ? 1 : -1);
         setInventoryData(sortedData)
-        setSortActive('inventory')
+        setSort('inventory')
     }
 
     const sortCategory = () => {
         const sortedData = [].concat(inventoryData).sort((a, b) => a.category > b.category ? 1 : -1);
         setInventoryData(sortedData);
-        setSortActive('category');
+        setSort('category');
     }
 
     const sortStatus = () => {
         const sortedData = [].concat(inventoryData).sort((a, b) => a.status > b.status ? 1 : -1);
         setInventoryData(sortedData);
-        setSortActive('status');
+        setSort('status');
     }
 
     const sortQuantity = () => {
         const sortedData = [].concat(inventoryData).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
         setInventoryData(sortedData);
-        setSortActive('quantity');
+        setSort('quantity');
     }
 
     return (
@@ -118,7 +115,7 @@ function WarehouseDetailsPage() {
                         </div>
                     </div>
                 </div>
-                {inventoryData && <WarehouseDetailsPageSortBar sortActive={sortActive} sortInventory={sortInventory} sortCategory={sortCategory} sortStatus={sortStatus} sortQuantity={sortQuantity} />}
+                {inventoryData && <WarehouseDetailsPageSortBar sort={sort} sortInventory={sortInventory} sortCategory={sortCategory} sortStatus={sortStatus} sortQuantity={sortQuantity} />}
                 {inventoryData && <WarehouseInventoryCard inventoryData={inventoryData} getInventoryOfWarehouse={getInventoryOfWarehouse} warehouseId={id} />}
             </section>}
         </main>
