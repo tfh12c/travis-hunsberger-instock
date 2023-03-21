@@ -14,6 +14,7 @@ function WarehouseDetailsPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [sort, setSort] = useState('');
+    const [isAsc, setIsAsc] = useState(false);
     const { id } = useParams();
 
     //GET warehouse by ID
@@ -53,27 +54,59 @@ function WarehouseDetailsPage() {
     }, [id])
     
     const sortInventory = () => {
-        const sortedData = [].concat(inventoryData).sort((a, b) => a.itemName > b.itemName ? 1 : -1);
-        setInventoryData(sortedData)
-        setSort('inventory')
+        if (!isAsc) {
+            const sortedData = [].concat(inventoryData).sort((a, b) => a.itemName > b.itemName ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('inventory')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(inventoryData).sort((a, b) => b.itemName > a.itemName ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('inventory')
+            setIsAsc(false);
+        }
     }
 
     const sortCategory = () => {
-        const sortedData = [].concat(inventoryData).sort((a, b) => a.category > b.category ? 1 : -1);
-        setInventoryData(sortedData);
-        setSort('category');
+        if (!isAsc) {
+            const sortedData = [].concat(inventoryData).sort((a, b) => a.category > b.category ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('category')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(inventoryData).sort((a, b) => b.category > a.category ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('category')
+            setIsAsc(false);
+        }
     }
 
     const sortStatus = () => {
-        const sortedData = [].concat(inventoryData).sort((a, b) => a.status > b.status ? 1 : -1);
-        setInventoryData(sortedData);
-        setSort('status');
+        if (!isAsc) {
+            const sortedData = [].concat(inventoryData).sort((a, b) => a.status > b.status ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('status')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(inventoryData).sort((a, b) => b.status > a.status ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('status')
+            setIsAsc(false);
+        }
     }
 
     const sortQuantity = () => {
-        const sortedData = [].concat(inventoryData).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
-        setInventoryData(sortedData);
-        setSort('quantity');
+        if (!isAsc) {
+            const sortedData = [].concat(inventoryData).sort((a, b) => a.quantity > b.quantity ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('quantity')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(inventoryData).sort((a, b) => b.quantity > a.quantity ? 1 : -1);
+            setInventoryData(sortedData);
+            setSort('quantity')
+            setIsAsc(false);
+        }
     }
 
     return (

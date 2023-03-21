@@ -12,6 +12,7 @@ function WarehouseHomePage() {
     const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('');
+    const [isAsc, setIsAsc] = useState(false);
 
     //GET all warehouse data from backend api
     const getWarehouses = async () => {
@@ -37,31 +38,62 @@ function WarehouseHomePage() {
         setSearch(event.target.value.toLowerCase());
     }
 
-    const sortWarehouse = () => {
-        //how to do alternate asc/desc use if checks
-        //need to make another piece of state to flip the sorts. sortAsc, setSortAsc useState
+    console.log(data);
 
-        const sortedData = [].concat(data).sort((a, b) => a.name > b.name ? 1 : -1);
-        setData(sortedData);
-        setSort('warehouse')
+    const sortWarehouse = () => {
+        if (!isAsc) {
+            const sortedData = [].concat(data).sort((a, b) => a.name > b.name ? 1 : -1);
+            setData(sortedData);
+            setSort('warehouse')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(data).sort((a, b) => b.name > a.name ? 1 : -1);
+            setData(sortedData);
+            setSort('warehouse')
+            setIsAsc(false);
+        }
     }
 
     const sortAddress = () => {
-        const sortedData = [].concat(data).sort((a, b) => a.address > b.address ? 1 : -1);
-        setData(sortedData);
-        setSort('address');
+        if (!isAsc) {
+            const sortedData = [].concat(data).sort((a, b) => a.address > b.address ? 1 : -1);
+            setData(sortedData);
+            setSort('address')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(data).sort((a, b) => b.address > a.address ? 1 : -1);
+            setData(sortedData);
+            setSort('address')
+            setIsAsc(false);
+        }
     }
 
     const sortContactName = () => {
-        const sortedData = [].concat(data).sort((a, b) => a.contact.name > b.contact.name ? 1 : -1);
-        setData(sortedData);
-        setSort('contactName');
+        if (!isAsc) {
+            const sortedData = [].concat(data).sort((a, b) => a.contact.name > b.contact.name ? 1 : -1);
+            setData(sortedData);
+            setSort('contactName')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(data).sort((a, b) => b.contact.name > a.contact.name ? 1 : -1);
+            setData(sortedData);
+            setSort('contactName')
+            setIsAsc(false);
+        }
     }
 
     const sortContactInfo = () => {
-        const sortedData = [].concat(data).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
-        setData(sortedData);
-        setSort('contactInfo');
+        if (!isAsc) {
+            const sortedData = [].concat(data).sort((a, b) => a.contact.email > b.contact.email ? 1 : -1);
+            setData(sortedData);
+            setSort('contactInfo')
+            setIsAsc(true);
+        } else {
+            const sortedData = [].concat(data).sort((a, b) => b.contact.email > a.contact.email ? 1 : -1);
+            setData(sortedData);
+            setSort('contactInfo')
+            setIsAsc(false);
+        }
     }
     
     return (
