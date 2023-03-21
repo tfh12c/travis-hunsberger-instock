@@ -20,10 +20,30 @@
     background-color: transparent;
     color: variables.$color-headers-placeholders;
     width: 20%;
+
+    @include mixins.desktop {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.warehouse-details-page-sort-bar__sort-icon {
+    @include mixins.desktop {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .warehouse-details-page-sort-bar__sort-icon--active {
     filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1782%) hue-rotate(214deg) brightness(93%) contrast(93%);
+
+    @include mixins.desktop {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .warehouse-details-page-sort-bar__actions {
@@ -39,5 +59,9 @@
 
     @include mixins.desktop {
         @include mixins.table-header;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
