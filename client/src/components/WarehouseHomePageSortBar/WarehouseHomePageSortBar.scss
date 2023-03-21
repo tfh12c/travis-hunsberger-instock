@@ -36,4 +36,8 @@
 
 .warehouse-home-page-sort-bar__warehouse-sort-header, .warehouse-home-page-sort-bar__address-sort-header, .warehouse-home-page-sort-bar__contact-name-sort-header, .warehouse-home-page-sort-bar__contact-info-sort-header, .warehouse-home-page-sort-bar__actions-header {
     font-size: .6875rem;
+
+    @include mixins.desktop {
+        @include mixins.table-header;
+    }
 }

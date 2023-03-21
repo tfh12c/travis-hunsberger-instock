@@ -56,6 +56,10 @@
             width: 11rem;
         }
 
+        @include mixins.desktop {
+            width: 18rem;
+        }
+
         &:focus {
             border: 1px solid variables.$color-primary-cta;
         }
