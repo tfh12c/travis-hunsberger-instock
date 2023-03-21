@@ -10,6 +10,10 @@
         margin: -7rem 2.5rem;
     }
 
+    @include mixins.desktop {
+        margin: -7rem 8rem;
+    }
+
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
     }
@@ -50,6 +54,10 @@
         @include mixins.tablet {
             margin-bottom: 0;
             width: 11rem;
+        }
+
+        @include mixins.desktop {
+            width: 18rem;
         }
 
         &:focus {

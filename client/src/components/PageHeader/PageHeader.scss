@@ -52,11 +52,19 @@
         @include mixins.tablet {
             margin: 0 0 7rem 0;
         }
+
+        @include mixins.desktop {
+            justify-content: flex-end;
+        }
     }
 
     &__nav-item {
         width: 100%;
         display: flex;
+
+        @include mixins.desktop {
+            width: 8rem;
+        }
     }
 
     &__nav-link {
