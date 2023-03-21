@@ -35,6 +35,13 @@
             justify-content: normal;
             padding: 2rem;
         }
+
+        @include mixins.desktop {
+            width: 55%;
+            height: 16rem;
+            justify-content: space-between;
+            top: 31%;
+        }
     }
 
     &__close-button {
