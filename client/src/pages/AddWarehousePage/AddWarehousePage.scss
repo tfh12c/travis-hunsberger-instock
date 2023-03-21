@@ -6,6 +6,14 @@
     margin: -3.5rem 1rem;
     border-radius: .25rem;
 
+    @include mixins.tablet {
+        margin: -7rem 2.5rem;
+    }
+
+    @include mixins.desktop {
+        margin: -7rem 8rem;
+    }
+
     &__content-container {
         box-shadow: 0 .1875rem .625rem rgba(0, 0, 0, 0.2);
     }
@@ -27,6 +35,10 @@
     &__arrow-back-button {
         border: none;
         background-color: transparent;
+
+        @include mixins.desktop {
+            margin-left: 2rem;
+        }
     }
 
     &__arrow-back-icon {
@@ -37,5 +49,11 @@
     &__header {
         font-size: 1.5rem;
         color: variables.$color-primary-text;
+
+        @include mixins.tablet {
+            margin: 2.1875rem 0;
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
     }
 }

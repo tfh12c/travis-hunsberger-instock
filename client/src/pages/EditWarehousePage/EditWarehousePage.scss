@@ -46,6 +46,10 @@
     &__arrow-back-icon {
         margin-top: .25rem;
         cursor: pointer;
+
+        @include mixins.desktop {
+            margin-left: 1rem;
+        }
     }
 
     &__header {
