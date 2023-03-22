@@ -7,6 +7,7 @@ import arrowBack from '../../assets/icons/arrow_back.svg';
 import edit from '../../assets/icons/edit.svg';
 import WarehouseDetailsPageSortBar from '../../components/WarehouseDetailsPageSortBar/WarehouseDetailsPageSortBar';
 import WarehouseInventoryCard from '../../components/WarehouseInventoryCard/WarehouseInventoryCard';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function WarehouseDetailsPage() {
     const [warehouseData, setWarehouseData] = useState(null);
@@ -21,7 +22,7 @@ function WarehouseDetailsPage() {
     const getWarehouseById = async (id) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:4000/warehouse/${id}`);
+            const response = await axios.get(`${API_ENDPOINT}/warehouse/${id}`);
             setWarehouseData(response.data);
             setLoading(false);
             setError(null);
@@ -36,7 +37,7 @@ function WarehouseDetailsPage() {
     const getInventoryOfWarehouse = async (id) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:4000/warehouse/${id}/inventory`);
+            const response = await axios.get(`${API_ENDPOINT}/warehouse/${id}/inventory`);
             setInventoryData(response.data);
             setLoading(false);
             setError(null)

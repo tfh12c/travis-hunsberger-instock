@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import AddInventoryForm from '../../components/AddInventoryForm/AddInventoryForm';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function AddInventoryPage() {
     const [categories, setCategories] = useState(null);
@@ -15,8 +16,8 @@ function AddInventoryPage() {
         setLoading(true);
         try {
             const [categoriesResponse, warehousesResponse] = await Promise.all([
-                axios.get('http://localhost:4000/category'),
-                axios.get('http://localhost:4000/warehouse')
+                axios.get(`${API_ENDPOINT}/category`),
+                axios.get(`${API_ENDPOINT}/warehouse`)
             ]);
             setCategories(categoriesResponse.data);
             setWarehouses(warehousesResponse.data);

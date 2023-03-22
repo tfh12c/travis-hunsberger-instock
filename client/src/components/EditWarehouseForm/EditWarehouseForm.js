@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
 import axios from 'axios';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function EditWarehouseForm({ warehouse, id }) {
     const [formValues, setFormValues] = useState({
@@ -41,7 +42,7 @@ function EditWarehouseForm({ warehouse, id }) {
 
         if (formValues.address && formValues.city && formValues.contactName && formValues.country && formValues.email && formValues.name && formValues.phone && formValues.position) {
             try {
-                await axios.put(`http://localhost:4000/warehouse/edit/${id}`, { ...formValues })
+                await axios.put(`${API_ENDPOINT}/warehouse/edit/${id}`, { ...formValues })
                 history.push(`/warehouse/${id}`);
             } catch (error) {
                 console.log(error);

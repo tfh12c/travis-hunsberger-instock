@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import EditWarehouseForm from '../../components/EditWarehouseForm/EditWarehouseForm';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function EditWarehousePage() {
     const [data, setData] = useState(null);
@@ -15,7 +16,7 @@ function EditWarehousePage() {
     const getWarehouseById = async (id) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:4000/warehouse/${id}`);
+            const response = await axios.get(`${API_ENDPOINT}/warehouse/${id}`);
             setData(response.data);
             setLoading(false);
             setError(null);

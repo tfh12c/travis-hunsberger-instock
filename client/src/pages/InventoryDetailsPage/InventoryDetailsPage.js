@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import edit from '../../assets/icons/edit.svg';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function InventoryDetailsPage() {
     const [data, setData] = useState(null);
@@ -15,7 +16,7 @@ function InventoryDetailsPage() {
     const getInventoryById = async (id) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:4000/inventory/${id}`);
+            const response = await axios.get(`${API_ENDPOINT}/inventory/${id}`);
             setData(response.data);
             setLoading(false);
             setError(null);

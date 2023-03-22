@@ -6,6 +6,7 @@ import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function InventoryCard({ inventory, getInventory, search }) {
     const [item, setItem] = useState(null);
@@ -14,7 +15,7 @@ function InventoryCard({ inventory, getInventory, search }) {
 
       const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:4000/inventory/delete/${id}`);
+            await axios.delete(`${API_ENDPOINT}/inventory/delete/${id}`);
             setDeleteModal(false);
             getInventory();
         } catch (error) {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
 import axios from 'axios';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function EditInventoryForm({ item, id, categories, warehouses }) {
     const [formValues, setFormValues] = useState(item);
@@ -53,7 +54,7 @@ function EditInventoryForm({ item, id, categories, warehouses }) {
 
         if (formValues.itemName && formValues.description) {
             try {
-            await axios.put(`http://localhost:4000/inventory/edit/${id}`, { ...formValues, quantity: parseInt(itemQuantity, 10) })
+            await axios.put(`${API_ENDPOINT}/inventory/edit/${id}`, { ...formValues, quantity: parseInt(itemQuantity, 10) })
             history.push(`/inventory/${id}`);
         } catch (error) {
             console.log(error);

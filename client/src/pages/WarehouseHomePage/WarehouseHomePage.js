@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import WarehouseHomePageSortBar from '../../components/WarehouseHomePageSortBar/WarehouseHomePageSortBar';
 import WarehouseCard from '../../components/WarehouseCard/WarehouseCard';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 
 function WarehouseHomePage() {
@@ -18,7 +19,7 @@ function WarehouseHomePage() {
     const getWarehouses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:4000/warehouse');
+            const response = await axios.get(`${API_ENDPOINT}/warehouse`);
             setData(response.data);
             setLoading(false);
             setError(null);
@@ -37,8 +38,6 @@ function WarehouseHomePage() {
     const handleSearch = (event) => {
         setSearch(event.target.value.toLowerCase());
     }
-
-    console.log(data);
 
     const sortWarehouse = () => {
         if (!isAsc) {

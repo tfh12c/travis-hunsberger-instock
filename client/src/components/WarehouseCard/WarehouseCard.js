@@ -6,6 +6,7 @@ import trashcan from '../../assets/icons/delete_outline.svg';
 import edit from '../../assets/icons/edit.svg';
 import chevron from '../../assets/icons/chevron_right.svg';
 import DeleteWarehouseModal from '../DeleteWarehouseModal/DeleteWarehouseModal';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function WarehouseCard({ warehouses, getWarehouses, search }) {
     const [warehouse, setWarehouse] = useState(null);
@@ -14,7 +15,7 @@ function WarehouseCard({ warehouses, getWarehouses, search }) {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:4000/warehouse/delete/${id}`);
+            await axios.delete(`${API_ENDPOINT}/warehouse/delete/${id}`);
             setDeleteModal(false);
             getWarehouses();
         } catch (error) {

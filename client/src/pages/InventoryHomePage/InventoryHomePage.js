@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import InventoryHomePageSortBar from '../../components/InventoryHomePageSortBar/InventoryHomePageSortBar';
 import InventoryCard from '../../components/InventoryCard/InventoryCard';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function InventoryHomePage() {
     const [data, setData] = useState(null);
@@ -17,7 +18,7 @@ function InventoryHomePage() {
     const getInventory = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:4000/inventory');
+            const response = await axios.get(`${API_ENDPOINT}/inventory`);
             setData(response.data);
             setLoading(false);
             setError(null);

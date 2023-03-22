@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import arrowBack from '../../assets/icons/arrow_back.svg';
 import EditInventoryForm from '../../components/EditInventoryForm/EditInventoryForm';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function EditInventoryPage() {
     const [item, setItem] = useState(null);
@@ -20,9 +21,9 @@ function EditInventoryPage() {
         setLoading(true);
         try {
             const [itemResponse, categoriesResponse, warehousesResponse] = await Promise.all([
-                axios.get(`http://localhost:4000/inventory/${id}`),
-                axios.get(`http://localhost:4000/category`),
-                axios.get('http://localhost:4000/warehouse')
+                axios.get(`${API_ENDPOINT}/inventory/${id}`),
+                axios.get(`${API_ENDPOINT}/category`),
+                axios.get(`${API_ENDPOINT}/warehouse`)
             ]);
             setItem(itemResponse.data);
             setCategories(categoriesResponse.data);

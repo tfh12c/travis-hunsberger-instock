@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import error from '../../assets/icons/error.svg';
 import axios from 'axios';
 import uniqid from 'uniqid';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function AddInventoryForm({ categories, warehouses }) {
     const [formValues, setFormValues] = useState({
@@ -60,7 +61,7 @@ function AddInventoryForm({ categories, warehouses }) {
         if (formValues.category && formValues.description && formValues.itemName && formValues.quantity && formValues.warehouseID && formValues.warehouseName) {
             const id = formValues.id;
             try {
-                await axios.post(`http://localhost:4000/inventory/add`, { ...formValues, quantity: parseInt(itemQuantity, 10) })
+                await axios.post(`${API_ENDPOINT}/inventory/add`, { ...formValues, quantity: parseInt(itemQuantity, 10) })
                 history.push(`/inventory/${id}`);
             } catch (error) {
                 console.log(error);

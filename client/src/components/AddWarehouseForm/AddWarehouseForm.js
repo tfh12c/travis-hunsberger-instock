@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import uniqid from 'uniqid';
 import error from '../../assets/icons/error.svg';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 function AddWarehouseForm() {
     const [formValues, setFormValues] = useState({
@@ -37,7 +38,7 @@ function AddWarehouseForm() {
 
         if (formValues.name && formValues.address && formValues.city && formValues.country && formValues.contactName && formValues.position && formValues.phone && formValues.email) {
             try {
-                await axios.post(`http://localhost:4000/warehouse/add`, { ...formValues })
+                await axios.post(`${API_ENDPOINT}/warehouse/add`, { ...formValues })
                 history.push(`/warehouse`);
             } catch (error) {
                 console.log(error);
