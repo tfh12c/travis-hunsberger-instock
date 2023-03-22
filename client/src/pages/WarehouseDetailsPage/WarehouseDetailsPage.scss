@@ -61,6 +61,8 @@
         width: 2.25rem;
         border-radius: 50%;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
         
         &:hover {
             background-color: variables.$color-background-dark;
