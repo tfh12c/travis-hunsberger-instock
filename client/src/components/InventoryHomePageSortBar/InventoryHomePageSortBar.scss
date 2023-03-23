@@ -48,7 +48,7 @@
     width: 16.6%;
 }
 
-.inventory-home-page-sort-bar__inventory-sort-header, .inventory-home-page-sort-bar__category-sort-header, .inventory-home-page-sort-bar__status-sort-header, .inventory-home-page-sort-bar__quantity-sort-header,.inventory-home-page-sort-bar__warehouse-sort-header, .inventory-home-page-sort-bar__actions-header {
+.inventory-home-page-sort-bar__inventory-sort-header, .inventory-home-page-sort-bar__category-sort-header, .inventory-home-page-sort-bar__status-sort-header, .inventory-home-page-sort-bar__quantity-sort-header,.inventory-home-page-sort-bar__warehouse-sort-header {
     font-size: .6875rem;
 
     @include mixins.desktop {
@@ -57,5 +57,13 @@
         &:hover {
             cursor: pointer;
         }
+    }
+}
+
+.inventory-home-page-sort-bar__actions-header {
+    font-size: .6875rem;
+
+    @include mixins.desktop {
+        @include mixins.table-header;
     }
 }
